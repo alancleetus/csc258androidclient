@@ -1,0 +1,203 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.paril.mlaclientapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="24" />
+9-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
+10
+11    <uses-feature
+11-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:5:5-7:35
+12        android:name="android.hardware.microphone"
+12-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:6:9-51
+13        android:required="false" />
+13-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:7:9-33
+14    <uses-feature android:name="android.hardware.camera" />
+14-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:9:5-60
+14-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:9:19-57
+15
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:12:5-66
+16-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:12:22-64
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:14:5-64
+17-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:14:22-62
+18    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+18-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:15:5-79
+18-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:15:22-77
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:16:5-78
+19-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:16:22-76
+20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+20-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:17:5-70
+20-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:17:22-68
+21    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+21-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:18:5-74
+21-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:18:22-72
+22    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+22-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:20:5-73
+22-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:20:22-70
+23
+24    <meta-data
+24-->[com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:25:5-27:34
+25        android:name="android.support.VERSION"
+25-->[com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:26:9-47
+26        android:value="25.3.0" />
+26-->[com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:27:9-31
+27
+28    <application
+28-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:22:5-91:19
+29        android:allowBackup="true"
+29-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:23:9-35
+30        android:debuggable="true"
+31        android:icon="@mipmap/ic_launcher"
+31-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:24:9-43
+32        android:label="@string/app_name"
+32-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:25:9-41
+33        android:supportsRtl="true"
+33-->[com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:14:9-35
+34        android:testOnly="true"
+35        android:theme="@style/AppTheme" >
+35-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:26:9-40
+36        <service android:name="com.paril.mlaclientapp.sinch.SinchService" />
+36-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:27:9-63
+36-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:27:18-52
+37
+38        <activity
+38-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:29:9-103
+39            android:name="com.paril.mlaclientapp.sinch.VideoCallScreenActivity"
+39-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:29:19-64
+40            android:screenOrientation="portrait" />
+40-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:29:65-101
+41        <activity
+41-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:31:9-98
+42            android:name="com.paril.mlaclientapp.sinch.CallScreenActivity"
+42-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:31:19-59
+43            android:screenOrientation="portrait" />
+43-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:31:60-96
+44        <activity
+44-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:32:9-105
+45            android:name="com.paril.mlaclientapp.ui.activity.CallStudentActivity"
+45-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:32:19-66
+46            android:screenOrientation="portrait" />
+46-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:32:67-103
+47        <activity
+47-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:34:9-106
+48            android:name="com.paril.mlaclientapp.sinch.IncomingCallScreenActivity"
+48-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:34:19-67
+49            android:screenOrientation="portrait" />
+49-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:34:68-104
+50        <activity
+50-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:35:9-97
+51            android:name="com.paril.mlaclientapp.sinch.PlaceCallActivity"
+51-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:35:19-58
+52            android:screenOrientation="portrait" />
+52-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:35:59-95
+53        <activity
+53-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:36:9-46:20
+54            android:name="com.paril.mlaclientapp.ui.activity.MLALoginActivity"
+54-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:37:13-57
+55            android:label="@string/app_name"
+55-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:40:13-45
+56            android:screenOrientation="portrait" >
+56-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:38:13-49
+57            <intent-filter>
+57-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:41:13-45:29
+58                <action android:name="android.intent.action.MAIN" />
+58-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:42:17-69
+58-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:42:25-66
+59
+60                <category android:name="android.intent.category.LAUNCHER" />
+60-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:44:17-77
+60-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:44:27-74
+61            </intent-filter>
+62        </activity>
+63        <activity
+63-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:47:9-53:20
+64            android:name="com.paril.mlaclientapp.ui.activity.MLAHomeActivity"
+64-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:48:13-56
+65            android:label="@string/title_activity_login"
+65-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:49:13-57
+66            android:screenOrientation="portrait"
+66-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:50:13-49
+67            android:windowSoftInputMode="stateHidden|adjustPan" >
+67-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:52:13-64
+68        </activity>
+69        <activity
+69-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:54:9-58:20
+70            android:name="com.paril.mlaclientapp.ui.activity.MLAViewAdminActivity"
+70-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:55:13-61
+71            android:screenOrientation="portrait"
+71-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:56:13-49
+72            android:windowSoftInputMode="stateHidden|adjustPan" >
+72-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:57:13-64
+73        </activity>
+74        <activity
+74-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:59:9-63:20
+75            android:name="com.paril.mlaclientapp.ui.activity.MLAViewInstructorActivity"
+75-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:60:13-66
+76            android:screenOrientation="portrait"
+76-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:61:13-49
+77            android:windowSoftInputMode="stateHidden|adjustPan" >
+77-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:62:13-64
+78        </activity>
+79        <activity
+79-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:65:9-69:20
+80            android:name="com.paril.mlaclientapp.ui.activity.MLAViewStudentActivity"
+80-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:66:13-63
+81            android:screenOrientation="portrait"
+81-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:67:13-49
+82            android:windowSoftInputMode="stateHidden|adjustPan" >
+82-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:68:13-64
+83        </activity>
+84        <activity
+84-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:72:9-76:20
+85            android:name="com.paril.mlaclientapp.ui.activity.MLAViewSubjectActivity"
+85-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:73:13-63
+86            android:screenOrientation="portrait"
+86-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:74:13-49
+87            android:windowSoftInputMode="stateHidden|adjustPan" >
+87-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:75:13-64
+88        </activity>
+89        <activity
+89-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:79:9-83:20
+90            android:name="com.paril.mlaclientapp.ui.activity.MLAUpdateGradeActivity"
+90-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:80:13-63
+91            android:screenOrientation="portrait"
+91-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:81:13-49
+92            android:windowSoftInputMode="stateHidden|adjustPan" >
+92-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:82:13-64
+93        </activity>
+94
+95        <service
+95-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:85:9-88:19
+96            android:name="com.paril.mlaclientapp.service.AlertTaskIntentService"
+96-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:86:13-59
+97            android:exported="false" >
+97-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:87:13-37
+98        </service>
+99
+100        <receiver android:name="com.paril.mlaclientapp.receivers.NotificationPublisher" />
+100-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:89:9-69
+100-->/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:89:19-66
+101
+102        <service
+102-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:12:9-18:19
+103            android:name="com.sinch.android.rtc.internal.client.gcm.InstanceIDTokenService"
+103-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:13:13-92
+104            android:exported="false" >
+104-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:14:13-37
+105            <intent-filter>
+105-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:15:13-17:29
+106                <action android:name="com.google.android.gms.iid.InstanceID" />
+106-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:17-80
+106-->[:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:25-77
+107            </intent-filter>
+108        </service>
+109    </application>
+110
+111</manifest>

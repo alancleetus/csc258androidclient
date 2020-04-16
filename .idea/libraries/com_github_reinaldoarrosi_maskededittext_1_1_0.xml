@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.reinaldoarrosi:maskededittext-1.1.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/31ffc140ea6f8ea69f652b6780aa0d99f927c0a0/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/31ffc140ea6f8ea69f652b6780aa0d99f927c0a0/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/6391c0c86b337e9f2ab3f003c2c22198d263e62f/maskededittext-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

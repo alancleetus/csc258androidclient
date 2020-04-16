@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.reinaldoarrosi:maskededittext:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/e931fff6d1307c0dd0582ae45c726bfdf0f056e4/maskededittext-1.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.reinaldoarrosi/maskededittext/1.1.0/6391c0c86b337e9f2ab3f003c2c22198d263e62f/maskededittext-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
