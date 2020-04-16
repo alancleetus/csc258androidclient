@@ -2,8 +2,10 @@ package com.paril.mlaclientapp.webservice;
 
 import com.paril.mlaclientapp.model.MLAAdminDetails;
 import com.paril.mlaclientapp.model.MLAGradeTask;
+import com.paril.mlaclientapp.model.MLAGroupKeys;
 import com.paril.mlaclientapp.model.MLAGroupStatus;
 import com.paril.mlaclientapp.model.MLAInstructorDetails;
+import com.paril.mlaclientapp.model.MLAPosts;
 import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAScheduleDetailPostData;
 import com.paril.mlaclientapp.model.MLAStudentDetails;
@@ -11,6 +13,7 @@ import com.paril.mlaclientapp.model.MLAStudentEnrollmentPostData;
 import com.paril.mlaclientapp.model.MLASubjectDetails;
 import com.paril.mlaclientapp.model.MLATaskDetails;
 import com.paril.mlaclientapp.model.MLAUserGroups;
+import com.paril.mlaclientapp.model.MLAUserPublicKeys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -156,13 +159,12 @@ public interface APIInterface {
      * Added by Alan Cleetus
      * Date: 4/15/2020
      */
-
     /**************************API's for  UserGroup*******************************/
     @GET("api/userGroup/GetAllUserGroups")
-    Call<ArrayList<MLAUserGroups>> GetAllUserGroups();
+    Call<ArrayList<MLAUserGroups>> getAllUserGroups();
 
     @GET("api/userGroup/GetAllGroups")
-    Call<ArrayList<MLAUserGroups>> GetAllGroups();
+    Call<ArrayList<MLAUserGroups>> getAllGroups();
 
     @GET("api/userGroup/GetGroupsByUserId")
     Call<ArrayList<MLAUserGroups>> getGroupsByUserId(@Query("userId") String userId);
@@ -180,11 +182,24 @@ public interface APIInterface {
 
 
     /**************************API's for  GroupKeys*******************************/
-//GroupKeys
+    @GET("api/GroupKeys/GetKey")
+    Call<ArrayList<MLAGroupKeys>> getGroupKey(@Query("userId") String userId, @Query("groupId") String groupId, @Query("groupKeyVersion") String groupKeyVersion);
+
+    @GET("api/GroupKeys/GetLatestKey")
+    Call<ArrayList<MLAGroupKeys>> getLatestKey(@Query("userId") String userId,@Query("groupId") String groupId);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/GroupKeys/PostStatus")
+    Call<String> addGroupKey(@Query("userId") String userId, @Query("groupId") String groupId, @Query("encryptedGroupKey") String encryptedGroupKey, @Query("groupKeyVersion") String groupKeyVersion);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/GroupKeys/UpdateStatus")
+    Call<String> updateGroupKeyStatus(@Query("groupId") String groupId, @Query("groupKeyVersion") String groupKeyVersion, @Query("status") String status);
+
 
     /**************************API's for  GroupStatus*******************************/
     @GET("api/GroupStatus/GetAll")
-    Call<ArrayList<MLAGroupStatus>> GetAllGroupStatus();
+    Call<ArrayList<MLAGroupStatus>> getAllGroupStatus();
 
     @GET("api/GroupStatus/GetById")
     Call<ArrayList<MLAGroupStatus>> getGroupStatusById(@Query("groupId") String groupId);
@@ -198,9 +213,26 @@ public interface APIInterface {
     Call<String> updateGroupStatus(@Query("groupId") String groupId, @Query("status") String status);
 
     /**************************API's for  Posts*******************************/
-//posts
+    @GET("api/posts/GetAllPosts")
+    Call<ArrayList<MLAPosts>> getAllPosts();
+
+    @GET("api/posts/GetPostsByGroup")
+    Call<ArrayList<MLAPosts>> getPostsByGroup(@Query("userId") String userId);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/posts/NewPost")
+    Call<String> addPost(@Query("message") String message, @Query("messageKey") String messageKey, @Query("digitalSignature") String digitalSignature, @Query("signer") String signer, @Query("keyVersion") String keyVersion, @Query("groupId") String groupId, @Query("postType") String postType, @Query("originalPostId") String originalPostId);
 
     /**************************API's for  UserPublicKeys*******************************/
-//UserPublicKeys
+    @GET("api/UserPublicKeys/GetAll")
+    Call<ArrayList<MLAUserPublicKeys>> GetAllUserPublicKeys();
+
+    @GET("api/UserPublicKeys/GetById")
+    Call<ArrayList<MLAUserPublicKeys>> getPublicKeyById(@Query("userId") String userId);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/UserPublicKeys/PostPublicKey")
+    Call<String> addPublicKey(@Query("userId") String userId, @Query("publicKey") String publicKey);
+
 
 }
