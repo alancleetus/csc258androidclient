@@ -4,24 +4,24 @@ ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
-MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:2:1-21:12
-MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:2:1-17:12
-MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1bb9f419ea4d19d54ff53d8a3a07409e/recyclerview-v7-25.3.0/AndroidManifest.xml:17:1-26:12
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/295d2375fdbb86a3df6b3c47a7e5d05e/library-1.2.0/AndroidManifest.xml:2:1-10:12
-MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
-MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/ac0511440aaa59cea28c9d290ef4694d/butterknife-8.5.1/AndroidManifest.xml:2:1-7:12
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:17:1-31:12
-MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/636ac46e41959cc2b80acf50afd84070/ChipsLayoutManager-0.3.7/AndroidManifest.xml:2:1-12:12
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/2805bf1387c93e4fe9ccc81edfb8e6ee/circleimageview-2.1.0/AndroidManifest.xml:2:1-11:12
+MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b57261037ae4f9c66098456d3b7cfc61/recyclerview-v7-25.3.0/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b97303871241962e144dee336d21ee39/library-1.2.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/6baf592af68406b28085d63ceb786d01/butterknife-8.5.1/AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/63b3a341b57b41ec2a24866dd5da21ca/ChipsLayoutManager-0.3.7/AndroidManifest.xml:2:1-12:12
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d42568138a149e85e911724643def17b/circleimageview-2.1.0/AndroidManifest.xml:2:1-11:12
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:2:1-93:12
@@ -79,36 +79,36 @@ ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/
 		ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:20:22-70
 application
 ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:22:5-91:19
-MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:11:5-19:19
-MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:11:5-19:19
-MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/AndroidManifest.xml:22:5-20
-MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:11:5-15:19
-MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
-MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:29:5-20
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/2805bf1387c93e4fe9ccc81edfb8e6ee/circleimageview-2.1.0/AndroidManifest.xml:9:5-20
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/2805bf1387c93e4fe9ccc81edfb8e6ee/circleimageview-2.1.0/AndroidManifest.xml:9:5-20
+MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:11:5-19:19
+MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:11:5-19:19
+MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
+MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:29:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d42568138a149e85e911724643def17b/circleimageview-2.1.0/AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d42568138a149e85e911724643def17b/circleimageview-2.1.0/AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:14:9-35
+		ADDED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:14:9-35
 	android:label
 		ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml:25:9-41
 	android:icon
@@ -233,46 +233,46 @@ uses-sdk
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
-MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:7:5-9:41
-MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/AndroidManifest.xml:20:5-43
-MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/2af50b03b32264f4b5c59bd3f0e04639/MaterialChipsInput-1.0.8/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1bb9f419ea4d19d54ff53d8a3a07409e/recyclerview-v7-25.3.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1bb9f419ea4d19d54ff53d8a3a07409e/recyclerview-v7-25.3.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:21:5-23:54
-MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/295d2375fdbb86a3df6b3c47a7e5d05e/library-1.2.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/295d2375fdbb86a3df6b3c47a7e5d05e/library-1.2.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d50b728050ad73e7232e8952bc43eef2/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:20:5-43
-MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/ac0511440aaa59cea28c9d290ef4694d/butterknife-8.5.1/AndroidManifest.xml:5:5-43
-MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/ac0511440aaa59cea28c9d290ef4694d/butterknife-8.5.1/AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/636ac46e41959cc2b80acf50afd84070/ChipsLayoutManager-0.3.7/AndroidManifest.xml:8:5-10:41
-MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/636ac46e41959cc2b80acf50afd84070/ChipsLayoutManager-0.3.7/AndroidManifest.xml:8:5-10:41
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/2805bf1387c93e4fe9ccc81edfb8e6ee/circleimageview-2.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/2805bf1387c93e4fe9ccc81edfb8e6ee/circleimageview-2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:7:5-9:41
+MERGED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:24.2.1] /home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.pchmn:MaterialChipsInput:1.0.8] /home/alan/.gradle/caches/transforms-2/files-2.1/bc447b8e0f66a9199744ebd0719ffddf/MaterialChipsInput-1.0.8/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b57261037ae4f9c66098456d3b7cfc61/recyclerview-v7-25.3.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b57261037ae4f9c66098456d3b7cfc61/recyclerview-v7-25.3.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:21:5-23:54
+MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b97303871241962e144dee336d21ee39/library-1.2.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b97303871241962e144dee336d21ee39/library-1.2.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:20:5-43
+MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/6baf592af68406b28085d63ceb786d01/butterknife-8.5.1/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/6baf592af68406b28085d63ceb786d01/butterknife-8.5.1/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/63b3a341b57b41ec2a24866dd5da21ca/ChipsLayoutManager-0.3.7/AndroidManifest.xml:8:5-10:41
+MERGED from [com.beloo.widget:ChipsLayoutManager:0.3.7] /home/alan/.gradle/caches/transforms-2/files-2.1/63b3a341b57b41ec2a24866dd5da21ca/ChipsLayoutManager-0.3.7/AndroidManifest.xml:8:5-10:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d42568138a149e85e911724643def17b/circleimageview-2.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d42568138a149e85e911724643def17b/circleimageview-2.1.0/AndroidManifest.xml:5:5-7:41
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 		ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
@@ -282,38 +282,38 @@ INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/s
 		ADDED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/AndroidManifest.xml
 service#com.sinch.android.rtc.internal.client.gcm.InstanceIDTokenService
-ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:12:9-18:19
+ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:12:9-18:19
 	android:exported
-		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:14:13-37
+		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:14:13-37
 	android:name
-		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:13:13-92
+		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:13:13-92
 intent-filter#action:name:com.google.android.gms.iid.InstanceID
-ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:15:13-17:29
+ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:15:13-17:29
 action#com.google.android.gms.iid.InstanceID
-ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:17-80
+ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:17-80
 	android:name
-		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/8ac11c46c596c3633436373710c1ebef/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:25-77
+		ADDED from [:sinch-android-rtc-3.11.1] /home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/sinch-android-rtc-3.11.1/build/.transforms/318762ba84685f1e52ce78445fbb79d8/sinch-android-rtc-3.11.1/AndroidManifest.xml:16:25-77
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1bb9f419ea4d19d54ff53d8a3a07409e/recyclerview-v7-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1bb9f419ea4d19d54ff53d8a3a07409e/recyclerview-v7-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/cbb6f7f4f9375e14d992973ac23c729e/support-v4-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/86d3b8d8600a8e77dc02f0b3918f0bca/animated-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/0eae9f59d8eee64d6d0d1141b466a19a/support-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/f4a10d20395af4d4adb32920baa59490/support-fragment-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/1e0f1fb74e73d8492eba5d6f7ffee79e/support-core-ui-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/80d1599b0f228f1e63c2eef597cdf2e7/support-media-compat-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/90d2560fd4c2b7a07450bc0b3b4c6db6/support-core-utils-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/e4c02bdac1d8b672173cfad48ae29d80/support-compat-25.3.0/AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b57261037ae4f9c66098456d3b7cfc61/recyclerview-v7-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b57261037ae4f9c66098456d3b7cfc61/recyclerview-v7-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/500089032852f7deca843892eb64e43d/support-fragment-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/637946bdf706cfbefa2483b2aae1b732/support-core-ui-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/296ba62d1ed52e844b30f37285a795cf/support-media-compat-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4a914101db8aa68561e552900e564320/support-core-utils-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/3e95d7381938f00c4b024cc8eb7527f9/support-compat-25.3.0/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:appcompat-v7:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/AndroidManifest.xml:26:9-47

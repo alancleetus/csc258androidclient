@@ -12,12 +12,12 @@
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/activity_mla_instructordisplay.xml"
     },
     {
-        "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_fragment_mla_edittask.xml.flat",
-        "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/fragment_mla_edittask.xml"
-    },
-    {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_fragment_mla_enrollstudent.xml.flat",
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/fragment_mla_enrollstudent.xml"
+    },
+    {
+        "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_fragment_mla_edittask.xml.flat",
+        "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/fragment_mla_edittask.xml"
     },
     {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/drawable-hdpi_big_red_normal.png.flat",

@@ -4,7 +4,17 @@
             "outputFile": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/alan/.gradle/caches/transforms-2/files-2.1/8a432475e846a11255712d9af546ff04/design-24.2.1/res/values-land/values-land.xml",
+                    "source": "/home/alan/.gradle/caches/transforms-2/files-2.1/fdac7d438fa8a575ce59b575454e8f52/appcompat-v7-25.3.0/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,125,189,260",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "120,184,255,323"
+                    }
+                },
+                {
+                    "source": "/home/alan/.gradle/caches/transforms-2/files-2.1/524eb54265a1cf7435d43aa0b03b2e88/design-24.2.1/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "9",
                         "endColumns": "12",
                         "endOffsets": "505"
-                    }
-                },
-                {
-                    "source": "/home/alan/.gradle/caches/transforms-2/files-2.1/023815fdd7fef76bc9d1d701d952a12d/appcompat-v7-25.3.0/res/values-land/values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,125,189,260",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "120,184,255,323"
                     }
                 }
             ]
