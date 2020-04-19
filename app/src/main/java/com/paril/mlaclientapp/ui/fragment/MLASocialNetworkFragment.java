@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.app.Fragment;
 import com.paril.mlaclientapp.R;
 
-public class MLASocialNetworkFragment extends android.app.Fragment {
+public class MLASocialNetworkFragment extends Fragment {
 
     View view;
     public int userId;
@@ -29,6 +29,17 @@ public class MLASocialNetworkFragment extends android.app.Fragment {
         view = inflater.inflate(R.layout.fragment_mla_social_network, container, false);
         getExtra();
 
+        //todo: check if keystore has public / private key if not generate key pair
+
+        //get posts
+            //get groups by user id
+                //for each group get all posts
+        // for each posts user can see:
+            // get group key using group id and version
+                // decrypt group key using private key
+                    //decrypt message using decGroupKey
+                        //add to decPosts list
+        //show all posts in decPosts list on user device
 
         return view;
     }

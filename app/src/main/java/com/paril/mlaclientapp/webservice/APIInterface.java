@@ -172,13 +172,16 @@ public interface APIInterface {
     @GET("api/userGroup/GetUsersByGroupId")
     Call<ArrayList<MLAUserGroups>> getGroupsByGroupId(@Query("groupId") String groupId);
 
+    @GET("api/userGroup/getGroupsByGroupName")
+    Call<List<MLAUserGroups>> getGroupsByGroupName(@Query("groupName") String groupName);
+
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/userGroup/CreateNewGroup")
-    Call<String> createNewGroup(@Query("userId") String userId, @Query("groupName") String groupName);
+    Call<Void> createNewGroup(@Query("userId") String userId, @Query("groupName") String groupName);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/userGroup/RmvUser")
-    Call<String> removeUserFromGroup(@Query("userId") String userId, @Query("groupId") String groupId);
+    Call<Void> removeUserFromGroup(@Query("userId") String userId, @Query("groupId") String groupId);
 
 
     /**************************API's for  GroupKeys*******************************/
@@ -189,12 +192,12 @@ public interface APIInterface {
     Call<ArrayList<MLAGroupKeys>> getLatestKey(@Query("userId") String userId,@Query("groupId") String groupId);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
-    @POST("api/GroupKeys/PostStatus")
-    Call<String> addGroupKey(@Query("userId") String userId, @Query("groupId") String groupId, @Query("encryptedGroupKey") String encryptedGroupKey, @Query("groupKeyVersion") String groupKeyVersion);
+    @POST("api/GroupKeys/InsertNewGroupKey")
+    Call<Void> addGroupKey(@Query("userId") int userId, @Query("groupId") int groupId, @Query("encryptedGroupKey") String encryptedGroupKey, @Query("groupKeyVersion") int groupKeyVersion);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/GroupKeys/UpdateStatus")
-    Call<String> updateGroupKeyStatus(@Query("groupId") String groupId, @Query("groupKeyVersion") String groupKeyVersion, @Query("status") String status);
+    Call<Void> updateGroupKeyStatus(@Query("groupId") String groupId, @Query("groupKeyVersion") String groupKeyVersion, @Query("status") String status);
 
 
     /**************************API's for  GroupStatus*******************************/
@@ -206,11 +209,11 @@ public interface APIInterface {
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/GroupStatus/PostStatus")
-    Call<String> addGroupStatus(@Query("groupId") String groupId, @Query("status") String status);
+    Call<Void> addGroupStatus(@Query("groupId") String groupId, @Query("status") String status);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/GroupStatus/UpdateStatus")
-    Call<String> updateGroupStatus(@Query("groupId") String groupId, @Query("status") String status);
+    Call<Void> updateGroupStatus(@Query("groupId") String groupId, @Query("status") String status);
 
     /**************************API's for  Posts*******************************/
     @GET("api/posts/GetAllPosts")
@@ -221,7 +224,7 @@ public interface APIInterface {
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/posts/NewPost")
-    Call<String> addPost(@Query("message") String message, @Query("messageKey") String messageKey, @Query("digitalSignature") String digitalSignature, @Query("signer") String signer, @Query("keyVersion") String keyVersion, @Query("groupId") String groupId, @Query("postType") String postType, @Query("originalPostId") String originalPostId);
+    Call<Void> addPost(@Query("message") String message, @Query("messageKey") String messageKey, @Query("digitalSignature") String digitalSignature, @Query("signer") String signer, @Query("keyVersion") String keyVersion, @Query("groupId") String groupId, @Query("postType") String postType, @Query("originalPostId") String originalPostId);
 
     /**************************API's for  UserPublicKeys*******************************/
     @GET("api/UserPublicKeys/GetAll")
@@ -232,7 +235,7 @@ public interface APIInterface {
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/UserPublicKeys/PostPublicKey")
-    Call<String> addPublicKey(@Query("userId") String userId, @Query("publicKey") String publicKey);
+    Call<Void> addPublicKey(@Query("userId") String userId, @Query("publicKey") String publicKey);
 
 
 }

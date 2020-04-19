@@ -149,6 +149,10 @@ public class MLAListData {
         List<MLAListModel> socialNetwork = new ArrayList<>();
         navDrawerHashMap.put("Social Network", socialNetwork);
 
+        List<MLAListModel> socialNetworkGroups = new ArrayList<>();
+        navDrawerHashMap.put("Social Network Groups", socialNetworkGroups);
+
+
         return navDrawerHashMap;
     }
 }

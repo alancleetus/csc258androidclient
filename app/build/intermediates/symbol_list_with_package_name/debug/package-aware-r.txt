@@ -800,6 +800,7 @@ id activity_view_instructor_coordinatorLayout
 id activity_view_student_coordinatorLayout
 id activity_view_subject_coordinatorLayout
 id add
+id addMemberToGroupButton
 id alertTitle
 id all
 id always
@@ -832,6 +833,7 @@ id collapseActionView
 id container
 id content
 id contentPanel
+id createGroupButton
 id custom
 id customPanel
 id dawerLayout
@@ -1015,6 +1017,7 @@ id multiply
 id name
 id navigation_header_container
 id never
+id newGroupNameEditText
 id none
 id normal
 id notification_background
@@ -1044,6 +1047,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchGroupsButton
 id search_badge
 id search_bar
 id search_button
@@ -1076,6 +1080,7 @@ id subject_item_display_layout_swipeParent
 id subject_item_display_layout_txtDesc
 id subject_item_display_layout_txtTitle
 id submenuarrow
+id submitNewGroupButton
 id submit_area
 id tabMode
 id task_item_progress_layout_Progress
@@ -1090,6 +1095,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView2
 id textView3
 id text_input_password_toggle
 id time
@@ -1155,6 +1161,7 @@ layout assigned_subject_item_display_layout
 layout callscreen
 layout chip_view
 layout chips_input
+layout create_group_dialog
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
 layout design_layout_snackbar_include
@@ -1182,6 +1189,7 @@ layout fragment_mla_edittask
 layout fragment_mla_enrollstudent
 layout fragment_mla_gradedisplay
 layout fragment_mla_gradegraph
+layout fragment_mla_groups
 layout fragment_mla_instructorlist
 layout fragment_mla_myinformation
 layout fragment_mla_newmessage

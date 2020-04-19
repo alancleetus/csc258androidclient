@@ -33,6 +33,7 @@ import com.paril.mlaclientapp.ui.fragment.MLAEnrollStudentFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAEnrollStudentViewFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAGradeStudentViewFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAGradeViewFragment;
+import com.paril.mlaclientapp.ui.fragment.MLAGroupsFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAHomeFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAInProcessTasksFragment;
 import com.paril.mlaclientapp.ui.fragment.MLAInstructStudentViewFragment;
@@ -299,6 +300,14 @@ public class MLAHomeActivity extends BaseActivity {
                             FragmentManager fragmentManager = getFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.mla_fragmentholder, mlaSocialNetworkFragment);
+                            fragmentTransaction.commit();
+                        }else if (listPrimary.get(groupPosition).equals("Social Network Groups")){
+                            /*Added by Alan Cleetus on 4/15/2020*/
+                            setToolbarTitle("Social Network Groups");
+                            MLAGroupsFragment mlaGroupsFragment = new MLAGroupsFragment();
+                            FragmentManager fragmentManager = getFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.mla_fragmentholder, mlaGroupsFragment);
                             fragmentTransaction.commit();
                         }else {
                             Toast.makeText(MLAHomeActivity.this, "Screen is still under development.", Toast.LENGTH_LONG).show();

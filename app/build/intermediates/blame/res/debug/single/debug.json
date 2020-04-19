@@ -92,6 +92,10 @@
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/activity_mla_updategrade.xml"
     },
     {
+        "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_fragment_mla_groups.xml.flat",
+        "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/fragment_mla_groups.xml"
+    },
+    {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_callscreen.xml.flat",
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/callscreen.xml"
     },
@@ -282,6 +286,10 @@
     {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/drawable_inputbox.xml.flat",
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/drawable/inputbox.xml"
+    },
+    {
+        "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_create_group_dialog.xml.flat",
+        "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/create_group_dialog.xml"
     },
     {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_activity_mla_studentdisplay.xml.flat",
