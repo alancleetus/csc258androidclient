@@ -44,5 +44,6 @@ dependencies {
     compile project(':sinch-android-rtc-3.11.1')
     implementation 'com.github.pchmn:MaterialChipsInput:1.0.8'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
 }

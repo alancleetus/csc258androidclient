@@ -84,8 +84,11 @@ public class MLASocialNetworkFragment extends Fragment {
 
             if (!keyStore.containsAlias(userId))
                 createKeyPair();
-
-            PrivateKey privateKey = (PrivateKey) keyStore.getKey(userId, null);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        /*    PrivateKey privateKey = (PrivateKey) keyStore.getKey(userId, null);
             PublicKey publicKey = keyStore.getCertificate(userId).getPublicKey();
 
             PublicKey unrestrictedPublicKey =
@@ -102,11 +105,10 @@ public class MLASocialNetworkFragment extends Fragment {
             String decryptedMessage = decrypt(encryptedMessage, privateKey);
             System.out.println("MLALog: dec="+decryptedMessage);
 
+*/
 
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+
+
 
         //get posts
             //get groups by user id

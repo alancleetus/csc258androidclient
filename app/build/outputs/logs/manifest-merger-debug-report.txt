@@ -12,6 +12,7 @@ MERGED from [com.android.support:recyclerview-v7:25.3.0] /home/alan/.gradle/cach
 MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:17:1-31:12
 MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b97303871241962e144dee336d21ee39/library-1.2.0/AndroidManifest.xml:2:1-10:12
 MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/alan/.gradle/caches/transforms-2/files-2.1/c33838df7ee8a7c79c8a8915fd94ce59/constraint-layout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:17:1-28:12
 MERGED from [com.jakewharton:butterknife:8.5.1] /home/alan/.gradle/caches/transforms-2/files-2.1/6baf592af68406b28085d63ceb786d01/butterknife-8.5.1/AndroidManifest.xml:2:1-7:12
@@ -91,6 +92,8 @@ MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/tr
 MERGED from [com.android.support:support-v4:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d60178f302932b3a2393abcc02a99394/support-v4-25.3.0/AndroidManifest.xml:29:5-20
 MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
 MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:11:5-53
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/alan/.gradle/caches/transforms-2/files-2.1/c33838df7ee8a7c79c8a8915fd94ce59/constraint-layout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/alan/.gradle/caches/transforms-2/files-2.1/c33838df7ee8a7c79c8a8915fd94ce59/constraint-layout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:26:5-20
@@ -249,6 +252,8 @@ MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/t
 MERGED from [com.daimajia.swipelayout:library:1.2.0] /home/alan/.gradle/caches/transforms-2/files-2.1/b97303871241962e144dee336d21ee39/library-1.2.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.reinaldoarrosi:maskededittext:1.1.0] /home/alan/.gradle/caches/transforms-2/files-2.1/4cc9aaf15d56337f585086121ca1f926/maskededittext-1.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/alan/.gradle/caches/transforms-2/files-2.1/c33838df7ee8a7c79c8a8915fd94ce59/constraint-layout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/alan/.gradle/caches/transforms-2/files-2.1/c33838df7ee8a7c79c8a8915fd94ce59/constraint-layout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/d6fc4696df9d970ddd86ea0bdead539d/animated-vector-drawable-25.3.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/alan/.gradle/caches/transforms-2/files-2.1/c709d4330708afe356aab245c5852e8f/support-vector-drawable-25.3.0/AndroidManifest.xml:20:5-43

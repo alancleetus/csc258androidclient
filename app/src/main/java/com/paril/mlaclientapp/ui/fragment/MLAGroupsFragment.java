@@ -23,6 +23,7 @@ import com.paril.mlaclientapp.model.MLAUserGroups;
 import com.paril.mlaclientapp.webservice.Api;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
@@ -47,8 +48,10 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
+import javax.crypto.spec.SecretKeySpec;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,6 +66,7 @@ public class MLAGroupsFragment extends Fragment {
     PrivateKey privateKey;
     PublicKey publicKey;
     PublicKey unrestrictedPublicKey;
+
     // extract the extras that was sent from the previous intent
     void getExtra() {
         Intent previous = MLAGroupsFragment.this.getActivity().getIntent();
@@ -71,7 +75,6 @@ public class MLAGroupsFragment extends Fragment {
             userId = (String) bundle.get("userId");
         }
     }
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -83,7 +86,7 @@ public class MLAGroupsFragment extends Fragment {
 
 
         //check if keystore has public / private key if not generate key pair
-        try{
+        try {
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
             keyStore.load(null);
 
@@ -96,13 +99,42 @@ public class MLAGroupsFragment extends Fragment {
                     KeyFactory.getInstance(publicKey.getAlgorithm()).generatePublic(
                             new X509EncodedKeySpec(publicKey.getEncoded()));
 
-        }catch(Exception e)
-        {
+
+/*
+            //generate new aes key
+            SecretKey secretKey = null;
+            String stringKey = "";
+            secretKey = KeyGenerator.getInstance("AES").generateKey();
+            System.out.println("MLALog: secretkey=" + secretKey);
+
+            //encrypt aes key with public key
+            stringKey = Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
+            System.out.println("MLALog: strSecretKey=" + stringKey);
+            String encSecKey = null;
+            encSecKey = encrypt(stringKey, unrestrictedPublicKey);
+            System.out.println("MLALog: encSecretKey=" + encSecKey);
+            //-->save to database here
+
+            //decrypt aes key recieved from database and convert it back to aes key
+            String decSecKey = decrypt(encSecKey, privateKey);
+            System.out.println("MLALog: decSecretKey=" + decSecKey);
+            byte[] keyBytes = Base64.decode(stringKey, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
+            SecretKey secretKey1 = new SecretKeySpec(keyBytes, 0, keyBytes.length, "AES");
+            System.out.println("MLALog: secretkey1=" + secretKey1);
+
+            //aes encrypt and aes decrypt testing
+            String encryptedMessage = encryptMsg("Test message..123.", secretKey);
+            System.out.println("MLALog: encMsg=" + encryptedMessage);
+            String decryptedMessage = decryptMsg(encryptedMessage, secretKey1);
+            System.out.println("MLALog: decMsg=" + decryptedMessage);
+*/
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         Button createNewGroupButton = (Button) view.findViewById(R.id.createGroupButton);
-        Button addMemberToGroup = (Button) view.findViewById(R.id.addMemberToGroupButton);
+        Button showGroupRequestsButton = (Button) view.findViewById(R.id.showGroupRequestsButton);
         Button searchGroupsButton = (Button) view.findViewById(R.id.searchGroupsButton);
 
 
@@ -113,14 +145,23 @@ public class MLAGroupsFragment extends Fragment {
             }
         });
 
-
+        searchGroupsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchGroupsDialog();
+            }
+        });
         return view;
     }
 
-    public  void createGroupDialog(){
+
+    /**********************************************************************************************/
+    /*********************************Create New Group*********************************************/
+    /**********************************************************************************************/
+    public void createGroupDialog() {
         /*
-        * creates new group, new group status, and adds new key
-        * */
+         * creates new group, new group status, and adds new key
+         * */
         final EditText nameEditText = new EditText(getActivity());
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
                 .setTitle("Create New Group")
@@ -130,7 +171,7 @@ public class MLAGroupsFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         final String groupName = String.valueOf(nameEditText.getText());
-                        System.out.println("MLALog: new group name = "+groupName);
+                        System.out.println("MLALog: new group name = " + groupName);
 
                         /****************create new group************/
                         Call<Void> callNewGroup = Api.getClient().createNewGroup(userId, groupName);
@@ -145,7 +186,7 @@ public class MLAGroupsFragment extends Fragment {
                                 callGroup.enqueue(new Callback<List<MLAUserGroups>>() {
                                     @Override
                                     public void onResponse(Call<List<MLAUserGroups>> call, Response<List<MLAUserGroups>> response) {
-                                        final String newGroupId = ""+response.body().get(0).getGroupId();
+                                        final String newGroupId = "" + response.body().get(0).getGroupId();
 
                                         /***************Create status of group**************/
                                         Call<Void> callNewGroup = Api.getClient().addGroupStatus(newGroupId, "true");
@@ -157,7 +198,6 @@ public class MLAGroupsFragment extends Fragment {
                                                 /****************add new group key***************/
                                                 //generate new aes key
                                                 SecretKey secretKey = null;
-
                                                 try {
                                                     secretKey = KeyGenerator.getInstance("AES").generateKey();
                                                 } catch (Exception e) {
@@ -165,20 +205,18 @@ public class MLAGroupsFragment extends Fragment {
                                                     System.out.println("MLALog:Error generating key");
                                                 }
 
-                                                String stringKey = "";
-                                                if (secretKey != null) {
-                                                    stringKey = Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-                                                }
-                                                //todo:test encryption of aes key and dec of aes key
-                                                String encKey = null;
+                                                //encrypt aes key with public key
+                                                String stringKey = Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
+
+                                                String encSecKey = null;
                                                 try {
-                                                    encKey = encrypt(stringKey, unrestrictedPublicKey);
+                                                    encSecKey = encrypt(stringKey, unrestrictedPublicKey);
                                                 } catch (Exception e) {
                                                     e.printStackTrace();
                                                 }
 
                                                 //add key to db
-                                                Call<Void> callNewKey = Api.getClient().addGroupKey(Integer.parseInt(userId), Integer.parseInt(newGroupId), encKey, 1);
+                                                Call<Void> callNewKey = Api.getClient().addGroupKey(Integer.parseInt(userId), Integer.parseInt(newGroupId), encSecKey, 1);
                                                 callNewKey.enqueue(new Callback<Void>() {
 
                                                     @Override
@@ -195,7 +233,6 @@ public class MLAGroupsFragment extends Fragment {
                                                     }
                                                 });
                                             }
-
 
                                             @Override
                                             public void onFailure(Call<Void> call, Throwable throwable) {
@@ -218,7 +255,6 @@ public class MLAGroupsFragment extends Fragment {
                                 System.out.println("MLALog:Error unable to create new group");
                             }
                         });
-
                     }
                 })
                 .setNegativeButton("Cancel", null)
@@ -228,8 +264,21 @@ public class MLAGroupsFragment extends Fragment {
 
 
 
-    private final static String CRYPTO_METHOD = "RSA";
+    /**********************************************************************************************/
+    /*********************************Search for Group*********************************************/
+    /**********************************************************************************************/
+    public void searchGroupsDialog()
+    {
 
+    }
+
+
+
+
+
+    /**********************************************************************************************/
+    /*********************************RSA enc/dec**************************************************/
+    /**********************************************************************************************/
     /*references:
         https://gist.github.com/balzss/a287b7ef1e7b6abcf069d522dcc53ffc
         https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec*/
@@ -256,7 +305,7 @@ public class MLAGroupsFragment extends Fragment {
                 KeyFactory.getInstance(publicKey.getAlgorithm()).generatePublic(
                         new X509EncodedKeySpec(publicKey.getEncoded()));
 
-        byte[] publicKeyBytes = Base64.encode(unrestrictedPublicKey.getEncoded(),Base64.NO_WRAP| Base64.URL_SAFE| Base64.NO_PADDING);
+        byte[] publicKeyBytes = Base64.encode(unrestrictedPublicKey.getEncoded(), Base64.NO_WRAP | Base64.URL_SAFE | Base64.NO_PADDING);
         String pubKeyStr = new String(publicKeyBytes);
 
         Call<Void> calladdPk = Api.getClient().addPublicKey(userId, pubKeyStr);
@@ -272,24 +321,19 @@ public class MLAGroupsFragment extends Fragment {
             }
         });
 
-        System.out.println("MLALog:new pub key = "+pubKeyStr);
+        System.out.println("MLALog:new pub key = " + pubKeyStr);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String encrypt(String plain, PublicKey pubk)
-            throws NoSuchAlgorithmException,
-            NoSuchPaddingException,
-            InvalidKeyException,
-            IllegalBlockSizeException,
-            BadPaddingException,
-            InvalidAlgorithmParameterException {
+            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
 
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
         OAEPParameterSpec spec = new OAEPParameterSpec(
                 "SHA-256", "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
 
-        cipher.init(Cipher.ENCRYPT_MODE, pubk,spec);
+        cipher.init(Cipher.ENCRYPT_MODE, pubk, spec);
 
         byte[] encryptedBytes = cipher.doFinal(plain.getBytes(StandardCharsets.UTF_8));
 
@@ -297,11 +341,7 @@ public class MLAGroupsFragment extends Fragment {
     }
 
     public static String decrypt(String result, PrivateKey privk)
-            throws NoSuchPaddingException,
-            NoSuchAlgorithmException,
-            BadPaddingException,
-            IllegalBlockSizeException,
-            InvalidKeyException {
+            throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
 
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
         cipher.init(Cipher.DECRYPT_MODE, privk);
@@ -310,12 +350,36 @@ public class MLAGroupsFragment extends Fragment {
     }
 
     private static PublicKey stringToPublicKey(String publicKeyString)
-            throws InvalidKeySpecException,
-            NoSuchAlgorithmException {
+            throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         byte[] keyBytes = Base64.decode(publicKeyString, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance(CRYPTO_METHOD);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         return keyFactory.generatePublic(spec);
+    }
+
+
+    /**********************************************************************************************/
+    /*********************************AES enc/dec**************************************************/
+    /**********************************************************************************************/
+    /*aes enc and dec from https://stackoverflow.com/questions/40123319/easy-way-to-encrypt-decrypt-string-in-android*/
+    public static String encryptMsg(String message, SecretKey secret)
+            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, UnsupportedEncodingException {
+        /* Encrypt the message. */
+        Cipher cipher = null;
+        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, secret);
+        byte[] cipherText = cipher.doFinal(message.getBytes("UTF-8"));
+        return Base64.encodeToString(cipherText, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
+    }
+
+    public static String decryptMsg(String cipherText, SecretKey secret)
+            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
+        /* Decrypt the message, given derived encContentValues and initialization vector. */
+        Cipher cipher = null;
+        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, secret);
+        String decryptString = new String(cipher.doFinal(Base64.decode(cipherText, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE)), "UTF-8");
+        return decryptString;
     }
 }
