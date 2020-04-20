@@ -1,17 +1,12 @@
 package com.paril.mlaclientapp.ui.fragment;
 
 import android.app.AlertDialog;
-import android.content.Context;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.security.keystore.KeyGenParameterSpec;
-import android.security.keystore.KeyProperties;
 import android.support.annotation.RequiresApi;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,38 +15,16 @@ import android.widget.EditText;
 
 import com.paril.mlaclientapp.R;
 import com.paril.mlaclientapp.model.MLAUserGroups;
+import com.paril.mlaclientapp.util.AESUtil;
+import com.paril.mlaclientapp.util.RSAUtil;
 import com.paril.mlaclientapp.webservice.Api;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.KeyFactory;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.KeyStore;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource;
-import javax.crypto.spec.SecretKeySpec;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -91,7 +64,7 @@ public class MLAGroupsFragment extends Fragment {
             keyStore.load(null);
 
             if (!keyStore.containsAlias(userId))
-                createKeyPair();
+                RSAUtil.createKeyPair(userId);
 
             privateKey = (PrivateKey) keyStore.getKey(userId, null);
             publicKey = keyStore.getCertificate(userId).getPublicKey();
@@ -100,32 +73,22 @@ public class MLAGroupsFragment extends Fragment {
                             new X509EncodedKeySpec(publicKey.getEncoded()));
 
 
-/*
-            //generate new aes key
-            SecretKey secretKey = null;
-            String stringKey = "";
-            secretKey = KeyGenerator.getInstance("AES").generateKey();
-            System.out.println("MLALog: secretkey=" + secretKey);
 
-            //encrypt aes key with public key
-            stringKey = Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
+    /*        //generate new aes key
+            String stringKey = AESUtil.generateKey();
             System.out.println("MLALog: strSecretKey=" + stringKey);
-            String encSecKey = null;
-            encSecKey = encrypt(stringKey, unrestrictedPublicKey);
+            //enc aes key using public key
+            String encSecKey = RSAUtil.encrypt(stringKey, unrestrictedPublicKey);
             System.out.println("MLALog: encSecretKey=" + encSecKey);
-            //-->save to database here
 
             //decrypt aes key recieved from database and convert it back to aes key
-            String decSecKey = decrypt(encSecKey, privateKey);
+            String decSecKey = RSAUtil.decrypt(encSecKey, privateKey);
             System.out.println("MLALog: decSecretKey=" + decSecKey);
-            byte[] keyBytes = Base64.decode(stringKey, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-            SecretKey secretKey1 = new SecretKeySpec(keyBytes, 0, keyBytes.length, "AES");
-            System.out.println("MLALog: secretkey1=" + secretKey1);
 
             //aes encrypt and aes decrypt testing
-            String encryptedMessage = encryptMsg("Test message..123.", secretKey);
+            String encryptedMessage = AESUtil.encryptMsg("Test message..11234523.", stringKey);
             System.out.println("MLALog: encMsg=" + encryptedMessage);
-            String decryptedMessage = decryptMsg(encryptedMessage, secretKey1);
+            String decryptedMessage = AESUtil.decryptMsg(encryptedMessage, decSecKey);
             System.out.println("MLALog: decMsg=" + decryptedMessage);
 */
 
@@ -196,26 +159,16 @@ public class MLAGroupsFragment extends Fragment {
                                             public void onResponse(Call<Void> call, Response<Void> response) {
 
                                                 /****************add new group key***************/
-                                                //generate new aes key
-                                                SecretKey secretKey = null;
-                                                try {
-                                                    secretKey = KeyGenerator.getInstance("AES").generateKey();
-                                                } catch (Exception e) {
-                                                    e.printStackTrace();
-                                                    System.out.println("MLALog:Error generating key");
-                                                }
+                                               String stringKey = AESUtil.generateKey();
 
                                                 //encrypt aes key with public key
-                                                String stringKey = Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-
                                                 String encSecKey = null;
                                                 try {
-                                                    encSecKey = encrypt(stringKey, unrestrictedPublicKey);
+                                                    encSecKey = RSAUtil.encrypt(stringKey, unrestrictedPublicKey);
                                                 } catch (Exception e) {
                                                     e.printStackTrace();
                                                 }
 
-                                                //add key to db
                                                 Call<Void> callNewKey = Api.getClient().addGroupKey(Integer.parseInt(userId), Integer.parseInt(newGroupId), encSecKey, 1);
                                                 callNewKey.enqueue(new Callback<Void>() {
 
@@ -272,114 +225,4 @@ public class MLAGroupsFragment extends Fragment {
 
     }
 
-
-
-
-
-    /**********************************************************************************************/
-    /*********************************RSA enc/dec**************************************************/
-    /**********************************************************************************************/
-    /*references:
-        https://gist.github.com/balzss/a287b7ef1e7b6abcf069d522dcc53ffc
-        https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec*/
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    public void createKeyPair() throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeySpecException {
-
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance(KeyProperties.KEY_ALGORITHM_RSA, "AndroidKeyStore");
-        kpg.initialize(new KeyGenParameterSpec.Builder(
-                userId,
-                KeyProperties.PURPOSE_DECRYPT
-                        | KeyProperties.PURPOSE_ENCRYPT
-                        | KeyProperties.PURPOSE_VERIFY
-                        | KeyProperties.PURPOSE_SIGN)
-                .setDigests(KeyProperties.DIGEST_SHA256)
-                .setSignaturePaddings(KeyProperties.SIGNATURE_PADDING_RSA_PKCS1)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_RSA_OAEP)
-                .build());
-
-        KeyPair kp = kpg.genKeyPair();
-
-        PublicKey publicKey = kp.getPublic();
-
-        PublicKey unrestrictedPublicKey =
-                KeyFactory.getInstance(publicKey.getAlgorithm()).generatePublic(
-                        new X509EncodedKeySpec(publicKey.getEncoded()));
-
-        byte[] publicKeyBytes = Base64.encode(unrestrictedPublicKey.getEncoded(), Base64.NO_WRAP | Base64.URL_SAFE | Base64.NO_PADDING);
-        String pubKeyStr = new String(publicKeyBytes);
-
-        Call<Void> calladdPk = Api.getClient().addPublicKey(userId, pubKeyStr);
-        calladdPk.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                System.out.println("MLALog: added pk to db");
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable throwable) {
-                System.out.println("MLALog:error adding  pub key to db");
-            }
-        });
-
-        System.out.println("MLALog:new pub key = " + pubKeyStr);
-
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static String encrypt(String plain, PublicKey pubk)
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-
-        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
-        OAEPParameterSpec spec = new OAEPParameterSpec(
-                "SHA-256", "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
-
-        cipher.init(Cipher.ENCRYPT_MODE, pubk, spec);
-
-        byte[] encryptedBytes = cipher.doFinal(plain.getBytes(StandardCharsets.UTF_8));
-
-        return Base64.encodeToString(encryptedBytes, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-    }
-
-    public static String decrypt(String result, PrivateKey privk)
-            throws NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException, InvalidKeyException {
-
-        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
-        cipher.init(Cipher.DECRYPT_MODE, privk);
-        byte[] decryptedBytes = cipher.doFinal(Base64.decode(result, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE));
-        return new String(decryptedBytes);
-    }
-
-    private static PublicKey stringToPublicKey(String publicKeyString)
-            throws InvalidKeySpecException, NoSuchAlgorithmException {
-
-        byte[] keyBytes = Base64.decode(publicKeyString, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        return keyFactory.generatePublic(spec);
-    }
-
-
-    /**********************************************************************************************/
-    /*********************************AES enc/dec**************************************************/
-    /**********************************************************************************************/
-    /*aes enc and dec from https://stackoverflow.com/questions/40123319/easy-way-to-encrypt-decrypt-string-in-android*/
-    public static String encryptMsg(String message, SecretKey secret)
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, UnsupportedEncodingException {
-        /* Encrypt the message. */
-        Cipher cipher = null;
-        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, secret);
-        byte[] cipherText = cipher.doFinal(message.getBytes("UTF-8"));
-        return Base64.encodeToString(cipherText, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-    }
-
-    public static String decryptMsg(String cipherText, SecretKey secret)
-            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
-        /* Decrypt the message, given derived encContentValues and initialization vector. */
-        Cipher cipher = null;
-        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, secret);
-        String decryptString = new String(cipher.doFinal(Base64.decode(cipherText, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE)), "UTF-8");
-        return decryptString;
-    }
 }

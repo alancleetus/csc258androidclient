@@ -857,7 +857,6 @@ id activity_view_instructor_coordinatorLayout
 id activity_view_student_coordinatorLayout
 id activity_view_subject_coordinatorLayout
 id add
-id addMemberToGroupButton
 id addPostButton
 id alertTitle
 id all
@@ -1130,6 +1129,7 @@ id search_voice_btn
 id select_dialog_listview
 id shortcut
 id showCustom
+id showGroupRequestsButton
 id showHome
 id showTitle
 id snackbar_action
