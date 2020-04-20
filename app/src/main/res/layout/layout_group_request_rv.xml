@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:id="@+id/parent_layout_group_request_rv"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/groupNameTv_group_request_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="group name" />
+        android:orientation="vertical">
 
-    <TextView
-    android:id="@+id/userNameTv_group_request_rv"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="2"
-    android:text="username" />
+        <TextView
+            android:id="@+id/groupNameTv_group_request_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="group name" />
+
+        <TextView
+            android:id="@+id/userNameTv_group_request_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/joinRequestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Accept Request" />
+        android:text="Accept" />
+
+    <Button
+        android:id="@+id/denyJoinRequestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F44336"
+        android:text="Deny" />
+
 </LinearLayout>

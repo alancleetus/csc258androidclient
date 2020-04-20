@@ -45,8 +45,8 @@ public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.
         String userName= getUserName(joinList.get(position).getUserId());
         String groupName = groupIdNameMap.get(joinList.get(position).getGroupId());
 
-        holder.groupNameTV.setText(userName);
-        holder.userNameTV.setText(groupName);
+        holder.groupNameTV.setText("User name:"+userName);
+        holder.userNameTV.setText("Group name:"+groupName);
 
         System.out.println("MLALog: username="+userName+", groupname="+groupName);
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +65,13 @@ public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.
                 //add user to groupkeys table with userid, groupid, enc aes key
             }
         });
+
+        holder.denyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //remove request and remove from list
+            }
+        });
     }
 
     public String getUserName(String userId)
@@ -81,7 +88,7 @@ public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.
 
         TextView groupNameTV;
         TextView userNameTV;
-        Button acceptButton;
+        Button acceptButton, denyButton;
         LinearLayout parentLayout;
 
         public ViewHolder(View itemView) {
@@ -90,6 +97,7 @@ public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.
             groupNameTV = (TextView)itemView.findViewById(R.id.groupNameTv_group_request_rv);
             userNameTV = (TextView) itemView.findViewById(R.id.userNameTv_group_request_rv);
             acceptButton = (Button) itemView.findViewById(R.id.joinRequestButton);
+            denyButton = (Button) itemView.findViewById(R.id.denyJoinRequestButton);
             parentLayout = (LinearLayout) itemView.findViewById(R.id.parent_layout_group_request_rv);
         }
     }

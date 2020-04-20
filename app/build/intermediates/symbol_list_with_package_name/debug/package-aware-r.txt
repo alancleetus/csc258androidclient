@@ -900,6 +900,7 @@ id declineButton
 id decor_content_parent
 id default_activity_button
 id delete_button
+id denyJoinRequestButton
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
