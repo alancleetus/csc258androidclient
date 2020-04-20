@@ -15,19 +15,22 @@
             android:id="@+id/createGroupButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create New Group" />
+            android:text="Create New Group"
+            android:layout_marginTop="20dp" />
 
         <Button
             android:id="@+id/searchGroupsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search Group" />
+            android:text="Search Group"
+            android:layout_marginTop="20dp"/>
 
         <Button
             android:id="@+id/showGroupRequestsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Show Group Requests" />
+            android:text="Show Group Requests"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
 </FrameLayout>

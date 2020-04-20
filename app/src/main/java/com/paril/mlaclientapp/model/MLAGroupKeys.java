@@ -48,4 +48,15 @@ public class MLAGroupKeys implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "MLAGroupKeys{" +
+                "userId=" + userId +
+                ", encryptedGroupKey='" + encryptedGroupKey + '\'' +
+                ", groupKeyVersion=" + groupKeyVersion +
+                ", groupId=" + groupId +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

@@ -2,6 +2,8 @@ package com.paril.mlaclientapp.ui.fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -71,9 +73,6 @@ public class MLAGroupsFragment extends Fragment {
             unrestrictedPublicKey =
                     KeyFactory.getInstance(publicKey.getAlgorithm()).generatePublic(
                             new X509EncodedKeySpec(publicKey.getEncoded()));
-
-
-
     /*        //generate new aes key
             String stringKey = AESUtil.generateKey();
             System.out.println("MLALog: strSecretKey=" + stringKey);
@@ -114,6 +113,7 @@ public class MLAGroupsFragment extends Fragment {
                 searchGroupsDialog();
             }
         });
+
         return view;
     }
 
@@ -222,6 +222,12 @@ public class MLAGroupsFragment extends Fragment {
     /**********************************************************************************************/
     public void searchGroupsDialog()
     {
+        MLASearchGroupsFragment mlaSearchGroupsFragment = new MLASearchGroupsFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), mlaSearchGroupsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
 

@@ -955,7 +955,9 @@ id fragment_update_password_coordinatorLayout
 id fragment_update_task_dialog_coordinatorLayout
 id fragment_updated_task_relEmptyView
 id gone
+id groupNameTv
 id groups
+id groupsListRV
 id hangupButton
 id home
 id homeAsUp
@@ -967,6 +969,7 @@ id info
 id info_layout
 id invisible
 id item_touch_helper_previous_elevation
+id joinRequestButton
 id label
 id lay_down
 id left
@@ -1092,6 +1095,7 @@ id packed
 id parallax
 id parent
 id parentPanel
+id parent_layout_grouplistRv
 id percent
 id pin
 id postsRecyclerView
@@ -1266,6 +1270,7 @@ layout fragment_mla_groups
 layout fragment_mla_instructorlist
 layout fragment_mla_myinformation
 layout fragment_mla_newmessage
+layout fragment_mla_search_groups
 layout fragment_mla_social_network
 layout fragment_mla_studentgradedisplay
 layout fragment_mla_studentslist
@@ -1276,6 +1281,7 @@ layout fragment_mla_tasksinprocess
 layout fragment_mla_taskupdate
 layout incoming
 layout item_list_filterable
+layout layout_grouplist_rv
 layout list_filterable_view
 layout login
 layout main

@@ -5,6 +5,7 @@ import com.paril.mlaclientapp.model.MLAGradeTask;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
 import com.paril.mlaclientapp.model.MLAGroupStatus;
 import com.paril.mlaclientapp.model.MLAInstructorDetails;
+import com.paril.mlaclientapp.model.MLAJoinRequest;
 import com.paril.mlaclientapp.model.MLAPosts;
 import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAScheduleDetailPostData;
@@ -236,6 +237,18 @@ public interface APIInterface {
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/UserPublicKeys/PostPublicKey")
     Call<Void> addPublicKey(@Query("userId") String userId, @Query("publicKey") String publicKey);
+
+    /**************************API's for  JoinRequests*******************************/
+    @GET("api/JoinRequests/GetRequestByGroupId")
+    Call<ArrayList<MLAJoinRequest>> getRequestByGroupId(@Query("groupId") String groupId);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/JoinRequests/CreateNewRequest")
+    Call<Void> addGroupJoinRequest(@Query("userId") String userId, @Query("groupId") String groupId);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/JoinRequests/RemoveRequest")
+    Call<Void> removeGroupJoinRequest(@Query("userId") String userId, @Query("groupId") String groupId);
 
 
 }
