@@ -54,6 +54,7 @@ public class MLAGroupsListAdapter extends RecyclerView.Adapter<MLAGroupsListAdap
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         Toast.makeText(mContext, "Request gid="+groupId+", uid="+userId, Toast.LENGTH_SHORT).show();
                         System.out.println("MLALog: Request = "+response);
+
                     }
 
                     @Override

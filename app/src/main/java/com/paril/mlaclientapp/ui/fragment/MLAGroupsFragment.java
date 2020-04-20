@@ -110,7 +110,14 @@ public class MLAGroupsFragment extends Fragment {
         searchGroupsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                searchGroupsDialog();
+                searchGroupsFragment();
+            }
+        });
+
+        showGroupRequestsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                groupRequestsFragment();
             }
         });
 
@@ -220,12 +227,26 @@ public class MLAGroupsFragment extends Fragment {
     /**********************************************************************************************/
     /*********************************Search for Group*********************************************/
     /**********************************************************************************************/
-    public void searchGroupsDialog()
+    public void searchGroupsFragment()
     {
         MLASearchGroupsFragment mlaSearchGroupsFragment = new MLASearchGroupsFragment();
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), mlaSearchGroupsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
+    /**********************************************************************************************/
+    /*********************************Accept Group requests****************************************/
+    /**********************************************************************************************/
+    public void groupRequestsFragment()
+    {
+        MLAGroupRequestsFragment mlaGroupRequestsFragment = new MLAGroupRequestsFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), mlaGroupRequestsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
