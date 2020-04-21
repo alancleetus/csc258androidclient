@@ -16,7 +16,6 @@ import com.paril.mlaclientapp.model.MLAJoinRequest;
 import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAUserGroups;
 import com.paril.mlaclientapp.ui.adapter.MLAJoinListAdapter;
-import com.paril.mlaclientapp.util.RSAUtil;
 import com.paril.mlaclientapp.webservice.Api;
 
 import java.io.IOException;
@@ -33,8 +32,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-
 
 public class MLAGroupRequestsFragment extends Fragment {
 
@@ -47,8 +44,8 @@ public class MLAGroupRequestsFragment extends Fragment {
     HashMap<String, String>groupIdNameMap;
     HashMap<String, String>userNameMap;
 
-int counter,counter2;
-    // extract the extras that was sent from the previous intent
+    int counter,counter2;
+
     void getExtra() {
         Intent previous = MLAGroupRequestsFragment.this.getActivity().getIntent();
         Bundle bundle = previous.getExtras();
@@ -60,10 +57,10 @@ int counter,counter2;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_mla_group_requests, container, false);
         getExtra();
+
         joinListRV = (RecyclerView) view.findViewById(R.id.groupRequestsRV);
         joinRequestsList = new ArrayList<MLAJoinRequest>();
         groupIdNameMap = new HashMap<String, String>();

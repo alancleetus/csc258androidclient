@@ -12,19 +12,30 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.paril.mlaclientapp.R;
+import com.paril.mlaclientapp.model.MLAUserGroups;
+import com.paril.mlaclientapp.util.AESUtil;
 import com.paril.mlaclientapp.util.RSAUtil;
+import com.paril.mlaclientapp.webservice.Api;
 
 import java.security.KeyFactory;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MLASocialNetworkFragment extends Fragment {
 
     View view;
     public String userId;
     KeyStore keyStore = null;
+    PrivateKey privateKey;
+    PublicKey publicKey;
+    PublicKey unrestrictedPublicKey;
 
     // extract the extras that was sent from the previous intent
     void getExtra() {
@@ -51,9 +62,9 @@ public class MLASocialNetworkFragment extends Fragment {
             if (!keyStore.containsAlias(userId))
                 RSAUtil.createKeyPair(userId);
 
-            PrivateKey privateKey = (PrivateKey) keyStore.getKey(userId, null);
-            PublicKey publicKey = keyStore.getCertificate(userId).getPublicKey();
-            PublicKey unrestrictedPublicKey =
+            privateKey = (PrivateKey) keyStore.getKey(userId, null);
+            publicKey = keyStore.getCertificate(userId).getPublicKey();
+            unrestrictedPublicKey =
                     KeyFactory.getInstance(publicKey.getAlgorithm()).generatePublic(
                             new X509EncodedKeySpec(publicKey.getEncoded()));
 
@@ -76,7 +87,27 @@ public class MLASocialNetworkFragment extends Fragment {
         }
 
 
+        Call<List<MLAUserGroups>> callPersonalGroup = Api.getClient().getGroupsByGroupName("_"+userId);
+        callPersonalGroup.enqueue(new Callback<List<MLAUserGroups>>() {
+            @Override
+            public void onResponse(Call<List<MLAUserGroups>> call, Response<List<MLAUserGroups>> response) {
+                if(response.body().size()<=0){
+                    makePersonalGroup();
+                }else
+                {
+                    System.out.println("MLALog: Personal Group Already exists");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MLAUserGroups>> call, Throwable throwable) {
+                System.out.println("MLALog: error getting personal group");
+            }
+        });
+
+
         showPosts();
+
         return view;
     }
 
@@ -95,6 +126,102 @@ public class MLASocialNetworkFragment extends Fragment {
 
     }
 
-    
+    public void makePost(String message, String groupId, String postType){
+        /*
+            Steps for making a post:
+
+            Assume Api = makePostApi(encryptedMessage, encryptedSessionKey, digitalSignature,
+                                    signer, postType, groupId, keyVersion)
+
+            Step 1: Generate a symmetric session key
+            Step 2: Encrypt message using session key     ------------------=> encryptedMessage
+            Step 3: Get latest group key from db          ------------------=> keyVersion
+            Step 4: Decrypt latest group key using private key in keystore
+            Step 5: Encrypt session Key using decrypted group Key  -------=> encryptedSessionKey
+            Step 6: Create Digital Signature                       -------=> digitalSignature
+
+            signer = currentUserId
+
+            Step 7: makeApiRequest(...);
+         */
+    }
+
+    void makePersonalGroup()
+    {
+        final String groupName = "_"+userId;
+
+        /****************create new group************/
+        Call<Void> callNewGroup = Api.getClient().createNewGroup(userId, groupName);
+        callNewGroup.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                System.out.println("MLALog: New Group Created");
+
+                /***********get new group's id by name***********/
+                Call<List<MLAUserGroups>> callGroup = Api.getClient().getGroupsByGroupName(groupName);
+                callGroup.enqueue(new Callback<List<MLAUserGroups>>() {
+                    @Override
+                    public void onResponse(Call<List<MLAUserGroups>> call, Response<List<MLAUserGroups>> response) {
+                        final String newGroupId = "" + response.body().get(0).getGroupId();
+
+                        /***************Create status of group**************/
+                        Call<Void> callNewGroup = Api.getClient().addGroupStatus(newGroupId, "true");
+                        callNewGroup.enqueue(new Callback<Void>() {
+                            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                                /****************add new group key***************/
+                                String stringKey = AESUtil.generateKey();
+
+                                //encrypt aes key with public key
+                                String encSecKey = null;
+                                try {
+                                    encSecKey = RSAUtil.encrypt(stringKey, unrestrictedPublicKey);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                Call<Void> callNewKey = Api.getClient().addGroupKey(userId, newGroupId, encSecKey, 1);
+                                callNewKey.enqueue(new Callback<Void>() {
+
+                                    @Override
+                                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                                        System.out.println("MLALog:DONE CREATING NEW GROUP W/ STATUS & KEY");
+                                        //System.out.println("MLALog: "+response.toString());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Void> call, Throwable throwable) {
+                                        System.out.println("MLALog:Error unable to add add key");
+
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable throwable) {
+                                System.out.println("MLALog:Error unable to add new status");
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<MLAUserGroups>> call, Throwable throwable) {
+                        System.out.println("MLALog:Error unable to get new group id");
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable throwable) {
+
+                System.out.println("MLALog:Error unable to create new group");
+            }
+        });
+    }
 
 }

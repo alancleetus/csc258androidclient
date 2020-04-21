@@ -1,13 +1,12 @@
 package com.paril.mlaclientapp.ui.fragment;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +38,9 @@ public class MLASearchGroupsFragment extends Fragment {
     PublicKey publicKey;
     PublicKey unrestrictedPublicKey;
 
-
     ArrayList<MLAUserGroups> groupsList = new ArrayList<MLAUserGroups>();
     RecyclerView groupListRV;
 
-    // extract the extras that was sent from the previous intent
     void getExtra() {
         Intent previous = MLASearchGroupsFragment.this.getActivity().getIntent();
         Bundle bundle = previous.getExtras();
@@ -79,6 +76,7 @@ public class MLASearchGroupsFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_mla_search_groups, container, false);
         getExtra();
+
         getKeyPairs();
         groupListRV = (RecyclerView) view.findViewById(R.id.groupsListRV);
 
@@ -88,9 +86,6 @@ public class MLASearchGroupsFragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
                 showList(response.body());
-                /*System.out.println("MLALog: "+response);
-                System.out.println("MLALog: "+response.body().get(2).getGroupId());
-                */
             }
 
             @Override
@@ -104,7 +99,13 @@ public class MLASearchGroupsFragment extends Fragment {
     }
 
     public void showList(ArrayList<MLAUserGroups> list){
-        groupsList = list;
+
+        for(MLAUserGroups g : list)
+        {
+            if(((String) g.getGroupName()).length()>0 && !(((String) g.getGroupName()).charAt(0)=='_')){
+                groupsList = list;
+            }
+        }
 
         /*reference https://www.youtube.com/watch?v=Vyqz_-sJGFk*/
         MLAGroupsListAdapter adapter = new MLAGroupsListAdapter(this.getActivity(), userId, groupsList);

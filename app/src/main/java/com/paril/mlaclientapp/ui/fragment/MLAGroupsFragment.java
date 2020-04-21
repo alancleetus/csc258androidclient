@@ -140,6 +140,7 @@ public class MLAGroupsFragment extends Fragment {
                 .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         final String groupName = String.valueOf(nameEditText.getText());
                         System.out.println("MLALog: new group name = " + groupName);
 
