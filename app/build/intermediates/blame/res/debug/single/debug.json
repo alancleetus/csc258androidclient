@@ -256,6 +256,10 @@
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/drawable-xhdpi/startbg.9.png"
     },
     {
+        "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_fragment_mla_new_post.xml.flat",
+        "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/fragment_mla_new_post.xml"
+    },
+    {
         "merged": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/res/merged/debug/layout_user_item_layout.xml.flat",
         "source": "/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/src/main/res/layout/user_item_layout.xml"
     },

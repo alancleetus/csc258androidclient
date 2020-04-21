@@ -1,15 +1,23 @@
 package com.paril.mlaclientapp.ui.fragment;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.paril.mlaclientapp.R;
 import com.paril.mlaclientapp.model.MLAUserGroups;
@@ -105,10 +113,26 @@ public class MLASocialNetworkFragment extends Fragment {
             }
         });
 
+        FloatingActionButton makePostButton = (FloatingActionButton) view.findViewById(R.id.addPostButton);
+        makePostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postMessageDialog();
+            }
+        });
 
         showPosts();
 
         return view;
+    }
+
+    void postMessageDialog(){
+        MLANewPostFragment mlaNewPostFragment = new MLANewPostFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), mlaNewPostFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     public void showPosts()
@@ -124,26 +148,6 @@ public class MLASocialNetworkFragment extends Fragment {
         //add to decPosts list
         //show all posts in decPosts list on user device
 
-    }
-
-    public void makePost(String message, String groupId, String postType){
-        /*
-            Steps for making a post:
-
-            Assume Api = makePostApi(encryptedMessage, encryptedSessionKey, digitalSignature,
-                                    signer, postType, groupId, keyVersion)
-
-            Step 1: Generate a symmetric session key
-            Step 2: Encrypt message using session key     ------------------=> encryptedMessage
-            Step 3: Get latest group key from db          ------------------=> keyVersion
-            Step 4: Decrypt latest group key using private key in keystore
-            Step 5: Encrypt session Key using decrypted group Key  -------=> encryptedSessionKey
-            Step 6: Create Digital Signature                       -------=> digitalSignature
-
-            signer = currentUserId
-
-            Step 7: makeApiRequest(...);
-         */
     }
 
     void makePersonalGroup()

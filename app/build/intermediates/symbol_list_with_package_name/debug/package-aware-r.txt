@@ -857,6 +857,7 @@ id activity_view_instructor_coordinatorLayout
 id activity_view_student_coordinatorLayout
 id activity_view_subject_coordinatorLayout
 id add
+id addNewPostButton
 id addPostButton
 id alertTitle
 id all
@@ -876,6 +877,7 @@ id callButton
 id callDuration
 id callName
 id callState
+id cancelNewPostButton
 id cancel_action
 id center
 id center_horizontal
@@ -956,6 +958,7 @@ id fragment_update_password_coordinatorLayout
 id fragment_update_task_dialog_coordinatorLayout
 id fragment_updated_task_relEmptyView
 id gone
+id groupListSpinner
 id groupNameTv
 id groupNameTv_group_request_rv
 id groupRequestsRV
@@ -1088,6 +1091,7 @@ id name
 id navigation_header_container
 id never
 id newGroupNameEditText
+id newPostMessageET
 id none
 id normal
 id notification_background
@@ -1102,6 +1106,7 @@ id parent_layout_group_request_rv
 id parent_layout_grouplistRv
 id percent
 id pin
+id postTypeSpinner
 id postsRecyclerView
 id progress_circular
 id progress_horizontal
@@ -1177,6 +1182,9 @@ id textSpacerNoTitle
 id textView
 id textView2
 id textView3
+id textView4
+id textView5
+id textView6
 id text_input_password_toggle
 id time
 id title
@@ -1275,6 +1283,7 @@ layout fragment_mla_group_requests
 layout fragment_mla_groups
 layout fragment_mla_instructorlist
 layout fragment_mla_myinformation
+layout fragment_mla_new_post
 layout fragment_mla_newmessage
 layout fragment_mla_search_groups
 layout fragment_mla_social_network
