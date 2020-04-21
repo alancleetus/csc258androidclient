@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.paril.mlaclientapp.R;
 import com.paril.mlaclientapp.model.MLAJoinRequest;
+import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAUserGroups;
 import com.paril.mlaclientapp.ui.adapter.MLAJoinListAdapter;
 import com.paril.mlaclientapp.util.RSAUtil;
@@ -27,6 +28,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,7 +45,9 @@ public class MLAGroupRequestsFragment extends Fragment {
     RecyclerView joinListRV;
 
     HashMap<String, String>groupIdNameMap;
-int counter;
+    HashMap<String, String>userNameMap;
+
+int counter,counter2;
     // extract the extras that was sent from the previous intent
     void getExtra() {
         Intent previous = MLAGroupRequestsFragment.this.getActivity().getIntent();
@@ -63,6 +67,7 @@ int counter;
         joinListRV = (RecyclerView) view.findViewById(R.id.groupRequestsRV);
         joinRequestsList = new ArrayList<MLAJoinRequest>();
         groupIdNameMap = new HashMap<String, String>();
+        userNameMap = new HashMap<String, String>();
 
         getAllRequestsForUser();
 
@@ -79,6 +84,7 @@ int counter;
 
                 //System.out.println("MLALog: group list size= "+response.body().size());
                 counter = 0;
+                counter2 =0;
 
                 for(MLAUserGroups g : response.body()) {
 
@@ -97,13 +103,32 @@ int counter;
                                 joinRequestsList.add(req);
                                 //System.out.println("MLALog: req= "+req.toString()+" list state="+joinRequestsList.size()+" ctr="+counter);
                             }
+
                             counter++;
-                            if(counter  >= groupIdNameMap.size()) {
-                                //System.out.println("MLALog: group list size2= " + joinRequestsList.size());
-                                try{
-                                    populateJoinListRV();
-                                }catch (Exception e){e.printStackTrace();}
-                            }
+
+                            Call<List<MLARegisterUsers>> callgetRegister = Api.getClient().GetRegisterByUserId(userId);
+                            callgetRegister.enqueue(new Callback<List<MLARegisterUsers>>() {
+                                @Override
+                                public void onResponse(Call<List<MLARegisterUsers>> call, Response<List<MLARegisterUsers>> response) {
+                                    String username =  response.body().get(0).getUserName();
+
+                                    userNameMap.put(response.body().get(0).getUserId(), response.body().get(0).getUserName());
+                                    counter2++;
+                                    if(counter  >= groupIdNameMap.size() && counter2>=userNameMap.size()) {
+                                        //System.out.println("MLALog: group list size2= " + joinRequestsList.size());
+                                        try{
+                                            populateJoinListRV();
+                                        }catch (Exception e){e.printStackTrace();}
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<List<MLARegisterUsers>> call, Throwable throwable) {
+
+                                }
+                            });
+
+
                         }
 
                         @Override
@@ -136,7 +161,7 @@ int counter;
 
         System.out.println("MLALog: populate list="+joinRequestsList);
         /*reference https://www.youtube.com/watch?v=Vyqz_-sJGFk*/
-        MLAJoinListAdapter adapter = new MLAJoinListAdapter(this.getActivity(), privateKey, joinRequestsList, groupIdNameMap);
+        MLAJoinListAdapter adapter = new MLAJoinListAdapter(this.getActivity(), userId, privateKey, joinRequestsList, groupIdNameMap, userNameMap);
         joinListRV.setAdapter(adapter);
         joinListRV.setLayoutManager(new LinearLayoutManager(this.getActivity()));
     }

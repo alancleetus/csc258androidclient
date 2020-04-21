@@ -176,7 +176,7 @@ public class MLAGroupsFragment extends Fragment {
                                                     e.printStackTrace();
                                                 }
 
-                                                Call<Void> callNewKey = Api.getClient().addGroupKey(Integer.parseInt(userId), Integer.parseInt(newGroupId), encSecKey, 1);
+                                                Call<Void> callNewKey = Api.getClient().addGroupKey(userId, newGroupId, encSecKey, 1);
                                                 callNewKey.enqueue(new Callback<Void>() {
 
                                                     @Override

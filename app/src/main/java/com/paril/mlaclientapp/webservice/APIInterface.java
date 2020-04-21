@@ -31,6 +31,10 @@ public interface APIInterface {
     @GET("api/Register/GetRegisterAuth")
     Call<List<MLARegisterUsers>> authenticate(@Query("userName") String userName, @Query("password") String password);
 
+
+    @GET("api/Register/GetRegisterByUserId")
+    Call<List<MLARegisterUsers>> GetRegisterByUserId(@Query("userId") String userId );
+
     @GET("api/Admin/GetAdminByUserName")
     Call<List<MLAAdminDetails>> getAdminInfo(@Query("userName") String userName);
 
@@ -181,6 +185,10 @@ public interface APIInterface {
     Call<Void> createNewGroup(@Query("userId") String userId, @Query("groupName") String groupName);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/userGroup/AddMemberToGroup")
+    Call<Void> addMemberToGroup(@Query("userId") String userId,@Query("groupId") String groupId, @Query("groupName") String groupName);
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/userGroup/RmvUser")
     Call<Void> removeUserFromGroup(@Query("userId") String userId, @Query("groupId") String groupId);
 
@@ -194,7 +202,7 @@ public interface APIInterface {
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/GroupKeys/InsertNewGroupKey")
-    Call<Void> addGroupKey(@Query("userId") int userId, @Query("groupId") int groupId, @Query("encryptedGroupKey") String encryptedGroupKey, @Query("groupKeyVersion") int groupKeyVersion);
+    Call<Void> addGroupKey(@Query("userId") String userId, @Query("groupId") String groupId, @Query("encryptedGroupKey") String encryptedGroupKey, @Query("groupKeyVersion") int groupKeyVersion);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/GroupKeys/UpdateStatus")
