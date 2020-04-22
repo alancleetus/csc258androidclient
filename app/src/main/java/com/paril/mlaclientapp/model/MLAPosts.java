@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class MLAPosts implements Serializable {
     public int postId;
     public String message;
-    public String messageKey;
+    public String messagekey;
     public String digitalSignature;
     public int signer;
     public String timestamp;
@@ -30,12 +30,12 @@ public class MLAPosts implements Serializable {
         this.message = message;
     }
 
-    public String getMessageKey() {
-        return messageKey;
+    public String getMessagekey() {
+        return messagekey;
     }
 
-    public void setMessageKey(String messageKey) {
-        this.messageKey = messageKey;
+    public void setMessagekey(String messagekey) {
+        this.messagekey = messagekey;
     }
 
     public String getDigitalSignature() {
@@ -92,5 +92,21 @@ public class MLAPosts implements Serializable {
 
     public void setPostType(String postType) {
         this.postType = postType;
+    }
+
+    @Override
+    public String toString() {
+        return "MLAPosts{" +
+                "postId=" + postId +
+                ", message='" + message + '\'' +
+                ", messageKey='" + messagekey + '\'' +
+                ", digitalSignature='" + digitalSignature + '\'' +
+                ", signer=" + signer +
+                ", timestamp='" + timestamp + '\'' +
+                ", keyVersion=" + keyVersion +
+                ", groupId=" + groupId +
+                ", originalPostId=" + originalPostId +
+                ", postType='" + postType + '\'' +
+                '}';
     }
 }

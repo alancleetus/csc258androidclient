@@ -1,4 +1,4 @@
-#Tue Apr 21 19:43:49 PDT 2020
+#Tue Apr 21 21:53:22 PDT 2020
 base.0=/home/alan/Desktop/CSC 258/jinsongo-mla-android-7b143deb8a78/app/build/intermediates/dex/debug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

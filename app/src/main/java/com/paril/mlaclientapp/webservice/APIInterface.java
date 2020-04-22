@@ -229,7 +229,7 @@ public interface APIInterface {
     Call<ArrayList<MLAPosts>> getAllPosts();
 
     @GET("api/posts/GetPostsByGroup")
-    Call<ArrayList<MLAPosts>> getPostsByGroup(@Query("userId") String userId);
+    Call<ArrayList<MLAPosts>> getPostsByGroup(@Query("groupId") String groupId);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/posts/NewPost")
