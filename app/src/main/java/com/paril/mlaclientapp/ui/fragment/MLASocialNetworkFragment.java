@@ -77,19 +77,10 @@ public class MLASocialNetworkFragment extends Fragment {
                             new X509EncodedKeySpec(publicKey.getEncoded()));
 
             byte[] publicKeyBytes = Base64.encode(unrestrictedPublicKey.getEncoded(), Base64.NO_WRAP | Base64.URL_SAFE | Base64.NO_PADDING);
-            String pubKeyStr = new String(publicKeyBytes);
 
-            /*
-            String encryptedMessage = RSAUtil.encrypt("Test message..123.", unrestrictedPublicKey);
-            String encryptedMessage2 = RSAUtil.encrypt("Test message..123.", pubKeyStr);
-            System.out.println("MLALog: enc="+encryptedMessage);
-            System.out.println("MLALog: enc2="+encryptedMessage2);
-            String decryptedMessage = RSAUtil.decrypt(encryptedMessage, privateKey);
-            System.out.println("MLALog: dec="+decryptedMessage);
-            String decryptedMessage2 = RSAUtil.decrypt(encryptedMessage2, privateKey);
-            System.out.println("MLALog: dec2="+decryptedMessage2);
-            */
-        }catch(Exception e)
+
+
+         }catch(Exception e)
         {
             e.printStackTrace();
         }
@@ -135,6 +126,7 @@ public class MLASocialNetworkFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void showPosts()
     {
         RecyclerView postsRV = (RecyclerView) view.findViewById(R.id.postsRecyclerView);

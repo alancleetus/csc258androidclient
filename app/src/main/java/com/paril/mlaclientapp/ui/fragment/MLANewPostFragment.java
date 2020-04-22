@@ -1,8 +1,10 @@
 package com.paril.mlaclientapp.ui.fragment;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.paril.mlaclientapp.R;
+import com.paril.mlaclientapp.model.MLAGroupKeys;
 import com.paril.mlaclientapp.model.MLAUserGroups;
 import com.paril.mlaclientapp.util.AESUtil;
 import com.paril.mlaclientapp.util.RSAUtil;
@@ -136,7 +140,7 @@ public class MLANewPostFragment extends Fragment {
     }
 
 
-    public void makePost(String message, String groupId, String postType){
+    public void makePost(final String message,final String groupId,final String postType){
         /*
             Steps for making a post:
 
@@ -155,19 +159,95 @@ public class MLANewPostFragment extends Fragment {
             Step 7: makeApiRequest(...);
          */
 
-        if(postType.equalsIgnoreCase("personal"))
-            groupId="_"+userId;
-
-        if(groupId.equalsIgnoreCase("_"+userId))
-            postType="personal";
-
         try {
-            String sessionKey = AESUtil.generateKey();
-            String encryptedMessage = AESUtil.encryptMsg(message, sessionKey);
-            
-        }catch (Exception e){e.printStackTrace();}
+            //Step 1
+            final String sessionKey = AESUtil.generateKey();
+            //Step 2
+            final String encryptedMessage = AESUtil.encryptMsg(message, sessionKey);
 
-        getFragmentManager().popBackStackImmediate();
+            Call<ArrayList<MLAGroupKeys>> callLatestKey = Api.getClient().getLatestKey(userId, groupId);
+            callLatestKey.enqueue(new Callback<ArrayList<MLAGroupKeys>>() {
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                @Override
+                public void onResponse(Call<ArrayList<MLAGroupKeys>> call, Response<ArrayList<MLAGroupKeys>> response) {
+                    try {
+                        //Step 3
+                        final String keyversion = "" + response.body().get(0).getGroupKeyVersion();
+                        //Step 4
+                        String encGroupKey = response.body().get(0).getEncryptedGroupKey();
+                        final String decGroupKey = RSAUtil.decrypt(encGroupKey, privateKey);
+
+                        //Step 5
+                        final String encryptedSessionKey = AESUtil.encryptMsg(sessionKey,decGroupKey);
+
+                        //Step 6
+                        final String digitalSignature = RSAUtil.encrypt(encryptedMessage, unrestrictedPublicKey);
+
+
+
+                        String callGroupId = groupId;
+                        String callPostType = postType;
+                        if(postType.charAt(0)=='p') {
+                            callGroupId = groupMap.get("_" + userId);
+                            callPostType="personal";
+
+                        }else {
+                            if(groupId.equalsIgnoreCase(groupMap.get("_"+userId)))
+                            {
+                                callGroupId = groupMap.get("_" + userId);
+                                callPostType="personal";
+
+                            }else {
+                                callGroupId = groupId;
+                                callPostType = "group";
+                            }
+                        }
+
+                       // Toast.makeText(getActivity(),callGroupId+" "+callPostType,Toast.LENGTH_SHORT).show();
+
+                        /* Call<Void> addPost(@Query("message") String message,
+                                              @Query("messageKey") String messageKey,
+                                              @Query("digitalSignature") String digitalSignature,
+                                              @Query("signer") String signer,
+                                              @Query("keyVersion") String keyVersion,
+                                              @Query("groupId") String groupId,
+                                              @Query("postType") String postType,
+                                              @Query("originalPostId") String originalPostId);
+                                */
+                        Call<Void> makePost = Api.getClient().addPost(encryptedMessage,
+                                                                            encryptedSessionKey,
+                                                                            digitalSignature,
+                                                                            userId,
+                                                                            keyversion,
+                                                                            callGroupId,
+                                                                            callPostType,
+                                                                "-1");
+                        makePost.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                                getFragmentManager().popBackStackImmediate();
+
+                                System.out.println("MLALog: Successfully made post");
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable throwable) {
+
+                                System.out.println("MLALog: Error making post: "+call.toString());
+                            }
+                        });
+
+                    }catch (Exception e){e.printStackTrace();}
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<MLAGroupKeys>> call, Throwable throwable) {
+                    System.out.println("MLALog: Error getting group key version");
+                }
+            });
+
+        }catch (Exception e){e.printStackTrace();}
     }
 
 }
