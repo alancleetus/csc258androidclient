@@ -140,6 +140,9 @@ public class MLANewPostFragment extends Fragment {
     }
 
 
+
+    String callGroupId;
+    String callPostType;
     public void makePost(final String message,final String groupId,final String postType){
         /*
             Steps for making a post:
@@ -159,13 +162,31 @@ public class MLANewPostFragment extends Fragment {
             Step 7: makeApiRequest(...);
          */
 
+        callGroupId = groupId;
+        callPostType = postType;
+        if(postType.charAt(0)=='p') {
+            callGroupId = groupMap.get("_" + userId);
+            callPostType="personal";
+
+        }else {
+            if(groupId.equalsIgnoreCase(groupMap.get("_"+userId)))
+            {
+                callGroupId = groupMap.get("_" + userId);
+                callPostType="personal";
+
+            }else {
+                callGroupId = groupId;
+                callPostType = "group";
+            }
+        }
+
         try {
             //Step 1
             final String sessionKey = AESUtil.generateKey();
             //Step 2
             final String encryptedMessage = AESUtil.encryptMsg(message, sessionKey);
 
-            Call<ArrayList<MLAGroupKeys>> callLatestKey = Api.getClient().getLatestKey(userId, groupId);
+            Call<ArrayList<MLAGroupKeys>> callLatestKey = Api.getClient().getLatestKey(userId, callGroupId);
             callLatestKey.enqueue(new Callback<ArrayList<MLAGroupKeys>>() {
                 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override
@@ -183,25 +204,6 @@ public class MLANewPostFragment extends Fragment {
                         //Step 6
                         final String digitalSignature = RSAUtil.encrypt(encryptedMessage, unrestrictedPublicKey);
 
-
-
-                        String callGroupId = groupId;
-                        String callPostType = postType;
-                        if(postType.charAt(0)=='p') {
-                            callGroupId = groupMap.get("_" + userId);
-                            callPostType="personal";
-
-                        }else {
-                            if(groupId.equalsIgnoreCase(groupMap.get("_"+userId)))
-                            {
-                                callGroupId = groupMap.get("_" + userId);
-                                callPostType="personal";
-
-                            }else {
-                                callGroupId = groupId;
-                                callPostType = "group";
-                            }
-                        }
 
                        // Toast.makeText(getActivity(),callGroupId+" "+callPostType,Toast.LENGTH_SHORT).show();
 

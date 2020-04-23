@@ -979,8 +979,11 @@ id joinRequestButton
 id label
 id lay_down
 id left
+id linLay1
 id line1
 id line3
+id linlay2
+id linlay3
 id listMode
 id list_item
 id localVideo
@@ -1104,9 +1107,14 @@ id parent
 id parentPanel
 id parent_layout_group_request_rv
 id parent_layout_grouplistRv
+id parent_posts_layout
 id percent
 id pin
+id postGroupNameTV
+id postLayoutMessageTV
+id postShareButton
 id postTypeSpinner
+id postUserNameTV
 id postsRecyclerView
 id progress_circular
 id progress_horizontal
@@ -1185,6 +1193,7 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
 id text_input_password_toggle
 id time
 id title
@@ -1298,6 +1307,7 @@ layout incoming
 layout item_list_filterable
 layout layout_group_request_rv
 layout layout_grouplist_rv
+layout layout_mla_posts
 layout list_filterable_view
 layout login
 layout main

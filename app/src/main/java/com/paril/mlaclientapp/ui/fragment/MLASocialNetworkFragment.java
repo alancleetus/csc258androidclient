@@ -8,16 +8,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.paril.mlaclientapp.R;
+import com.paril.mlaclientapp.model.DecryptedPost;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
 import com.paril.mlaclientapp.model.MLAPosts;
 import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAUserGroups;
+import com.paril.mlaclientapp.ui.adapter.MLAJoinListAdapter;
+import com.paril.mlaclientapp.ui.adapter.MLAPostsAdapter;
 import com.paril.mlaclientapp.util.AESUtil;
 import com.paril.mlaclientapp.util.RSAUtil;
 import com.paril.mlaclientapp.webservice.Api;
@@ -125,7 +130,7 @@ public class MLASocialNetworkFragment extends Fragment {
     }
 
     ArrayList<DecryptedPost> decPostsList = new ArrayList<>();
-    int ctr;
+    int ctr, totalPostCount;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void showPosts()
     {
@@ -144,16 +149,18 @@ public class MLASocialNetworkFragment extends Fragment {
         callUserGroup.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
             @Override
             public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
-                ctr = 0;
+                //ctr = 0;
+                totalPostCount = 0;
                 decPostsList.clear();
-
                 for(MLAUserGroups g: response.body()){
-                    ctr++;
                     Call<ArrayList<MLAPosts>> callPosts = Api.getClient().getPostsByGroup(""+g.getGroupId());
                     callPosts.enqueue(new Callback<ArrayList<MLAPosts>>() {
                         @Override
                         public void onResponse(Call<ArrayList<MLAPosts>> call, Response<ArrayList<MLAPosts>> response) {
+
+                            totalPostCount+=response.body().size();
                             for(final MLAPosts p: response.body()){
+                                System.out.println("MLALog: Posts = "+p);
                                 //dec posts
                                 //step 1: get group key
                                 Call<ArrayList<MLAGroupKeys>> callGetKey = Api.getClient().getGroupKey(userId, ""+p.getGroupId(), ""+p.getKeyVersion());
@@ -169,20 +176,67 @@ public class MLASocialNetworkFragment extends Fragment {
                                             //step 4: dec message using session key
                                             //System.out.println("MLALog: getMessage="+p.getMessage());
                                             //System.out.println("MLALog: decSessionKey="+decSessionKey);
-                                            String decMessage = AESUtil.decryptMsg(p.getMessage(), decSessionKey);
+                                            final String decMessage = AESUtil.decryptMsg(p.getMessage(), decSessionKey);
 
                                             //System.out.println("MLALog: decMessage="+decMessage);
-                                            //step 5: add decMessage to list
-                                            DecryptedPost d = new DecryptedPost(""+p.getPostId(), decMessage, userId, ""+p.getGroupId());
-                                            decPostsList.add(d);
+                                            //step 5: add decMessage to list after getting user name and group name
+                                            Call<ArrayList<MLAUserGroups>> callGetGroupName = Api.getClient().getGroupsByGroupId(""+p.getGroupId());
+                                            callGetGroupName.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
+                                                @Override
+                                                public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
+                                                    try{
+                                                        final String  groupName = response.body().get(0).getGroupName();
 
-                                            if(ctr>=response.body().size())
-                                            {
-                                                //rv adapter
+                                                        Call<List<MLARegisterUsers>> callgetRegister = Api.getClient().GetRegisterByUserId(userId);
+                                                        callgetRegister.enqueue(new Callback<List<MLARegisterUsers>>() {
+                                                            @Override
+                                                            public void onResponse(Call<List<MLARegisterUsers>> call, Response<List<MLARegisterUsers>> response) {
+                                                                try{
+                                                                    String  userName = response.body().get(0).getUserName();
 
-                                                System.out.println("MLALog: all posts = "+decPostsList);
-                                                //RecyclerView postsRV = (RecyclerView) view.findViewById(R.id.postsRecyclerView);
-                                            }
+                                                                    DecryptedPost d = new DecryptedPost(""+p.getPostId(), decMessage, userId, ""+p.getGroupId(), userName, groupName);
+                                                                    decPostsList.add(d);
+
+                                                                    System.out.println("MLALog: dec posts = "+d);
+
+                                                                    //todo: check if list worked and personal post can be decrypted properly
+
+                                                                    System.out.println("MLALog: all dec posts = "+decPostsList);
+                                                                    System.out.println("MLALog: totalPostCount = "+totalPostCount);
+                                                                    RecyclerView postsRV = (RecyclerView) view.findViewById(R.id.postsRecyclerView);
+                                                                    MLAPostsAdapter adapter = new MLAPostsAdapter(getActivity(), decPostsList);
+                                                                    postsRV.setAdapter(adapter);
+                                                                    postsRV.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+
+                                                                }catch (Exception e){
+                                                                    e.printStackTrace();
+                                                                    System.out.println("MLALog: unable to get userName from id");
+                                                                }
+                                                            }
+
+                                                            @Override
+                                                            public void onFailure(Call<List<MLARegisterUsers>> call, Throwable throwable) {
+
+                                                                System.out.println("MLALog: unable to get user creds");
+                                                            }
+                                                        });
+
+                                                    }catch (Exception e){
+                                                        e.printStackTrace();
+                                                        System.out.println("MLALog: unable to get group from id");
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<ArrayList<MLAUserGroups>> call, Throwable throwable) {
+                                                    System.out.println("MLALog: unable to get group name from id");
+                                                }
+                                            });
+
+
+
 
                                         }catch (Exception e){e.printStackTrace();}
                                     }
@@ -291,118 +345,4 @@ public class MLASocialNetworkFragment extends Fragment {
         });
     }
 
-}
-
-class DecryptedPost{
-    String userId;
-    String userName;
-    String decMessage;
-    String groupId;
-    String groupName;
-    String postid;
-
-    public DecryptedPost(String postId, String decMessage, String userId, String groupId) {
-        this.userId = userId;
-        this.postid = postId;
-        this.decMessage = decMessage;
-        this.groupId = groupId;
-
-        //todo: move this to calling function
-        Call<ArrayList<MLAUserGroups>> callGetGroupName = Api.getClient().getGroupsByGroupId(groupId);
-        callGetGroupName.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
-            @Override
-            public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
-                try{
-                    groupName = response.body().get(0).getGroupName();
-                }catch (Exception e){
-                    e.printStackTrace();
-                    System.out.println("MLALog: unable to get group from id");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<MLAUserGroups>> call, Throwable throwable) {
-                System.out.println("MLALog: unable to get group name from id");
-            }
-        });
-
-        Call<List<MLARegisterUsers>> callgetRegister = Api.getClient().GetRegisterByUserId(userId);
-        callgetRegister.enqueue(new Callback<List<MLARegisterUsers>>() {
-            @Override
-            public void onResponse(Call<List<MLARegisterUsers>> call, Response<List<MLARegisterUsers>> response) {
-                try{
-                    userName = response.body().get(0).getUserName();
-                }catch (Exception e){
-                    e.printStackTrace();
-                    System.out.println("MLALog: unable to get userName from id");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<MLARegisterUsers>> call, Throwable throwable) {
-
-                System.out.println("MLALog: unable to get user creds");
-            }
-        });
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getDecMessage() {
-        return decMessage;
-    }
-
-    public void setDecMessage(String decMessage) {
-        this.decMessage = decMessage;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public String getPostid() {
-        return postid;
-    }
-
-    public void setPostid(String postid) {
-        this.postid = postid;
-    }
-
-    @Override
-    public String toString() {
-        return "DecryptedPost{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", decMessage='" + decMessage + '\'' +
-                ", groupId='" + groupId + '\'' +
-                ", groupName='" + groupName + '\'' +
-                ", postid='" + postid + '\'' +
-                '}';
-    }
 }

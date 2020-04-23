@@ -16,7 +16,8 @@ public class CommonUtils {
     //public static String MlaBaseURL = "http://ec2-54-153-70-101.us-west-1.compute.amazonaws.com/MlaWebApi/";
     //public static String MlaBaseURL = "http://ec2-54-193-93-110.us-west-1.compute.amazonaws.com/mla/";
 
-    public static String MlaBaseURL = "https://ec2-52-53-241-87.us-west-1.compute.amazonaws.com/MlaWebApi/";
+    //public static String MlaBaseURL = "https://ec2-52-53-241-87.us-west-1.compute.amazonaws.com/MlaWebApi/";
+    public static String MlaBaseURL = "https://ec2-13-52-245-232.us-west-1.compute.amazonaws.com/MlaWebApi/";
 
 
     public static String EXTRA_USER_ADMIN_DATA="extra_user_admin_data";
