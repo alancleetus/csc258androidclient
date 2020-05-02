@@ -81,7 +81,7 @@ public class MLASearchGroupsFragment extends Fragment {
         groupListRV = (RecyclerView) view.findViewById(R.id.groupsListRV);
 
         //get all groups
-        Call<ArrayList<MLAUserGroups>> callAllGroup = Api.getClient().getAllUserGroups();
+        Call<ArrayList<MLAUserGroups>> callAllGroup = Api.getClient().getAllGroups();
         callAllGroup.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
             @Override
             public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
@@ -99,14 +99,7 @@ public class MLASearchGroupsFragment extends Fragment {
     }
 
     public void showList(ArrayList<MLAUserGroups> list){
-
-        for(MLAUserGroups g : list)
-        {
-            if(((String) g.getGroupName()).length()>0 && !(((String) g.getGroupName()).charAt(0)=='_')){
-                groupsList = list;
-            }
-        }
-
+        groupsList = list;
         /*reference https://www.youtube.com/watch?v=Vyqz_-sJGFk*/
         MLAGroupsListAdapter adapter = new MLAGroupsListAdapter(this.getActivity(), userId, groupsList);
         groupListRV.setAdapter(adapter);

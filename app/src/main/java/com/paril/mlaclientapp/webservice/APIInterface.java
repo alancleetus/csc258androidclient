@@ -1,5 +1,7 @@
 package com.paril.mlaclientapp.webservice;
 
+import com.paril.mlaclientapp.model.EncryptedPost;
+import com.paril.mlaclientapp.model.JoinReqWithInfo;
 import com.paril.mlaclientapp.model.MLAAdminDetails;
 import com.paril.mlaclientapp.model.MLAGradeTask;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
@@ -231,6 +233,10 @@ public interface APIInterface {
     @GET("api/posts/GetPostsByGroup")
     Call<ArrayList<MLAPosts>> getPostsByGroup(@Query("groupId") String groupId);
 
+
+    @GET("api/posts/getPostByUserId")
+    Call<ArrayList<EncryptedPost>> getPostsByUserId(@Query("userId") String userId);
+
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/posts/NewPost")
     Call<Void> addPost(@Query("message") String message, @Query("messageKey") String messageKey, @Query("digitalSignature") String digitalSignature, @Query("signer") String signer, @Query("keyVersion") String keyVersion, @Query("groupId") String groupId, @Query("postType") String postType, @Query("originalPostId") String originalPostId);
@@ -249,6 +255,10 @@ public interface APIInterface {
     /**************************API's for  JoinRequests*******************************/
     @GET("api/JoinRequests/GetRequestByGroupId")
     Call<ArrayList<MLAJoinRequest>> getRequestByGroupId(@Query("groupId") String groupId);
+
+
+    @GET("api/JoinRequests/GetRequestByUserId")
+    Call<ArrayList<JoinReqWithInfo>> getRequestByUserId(@Query("userId") String userId);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("api/JoinRequests/CreateNewRequest")

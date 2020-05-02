@@ -1,9 +1,9 @@
 package com.paril.mlaclientapp.ui.fragment;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.paril.mlaclientapp.R;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
@@ -23,13 +22,11 @@ import com.paril.mlaclientapp.webservice.Api;
 
 import java.security.KeyFactory;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,6 +53,7 @@ public class MLANewPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_mla_new_post, container, false);
         getExtra();
@@ -138,7 +136,6 @@ public class MLANewPostFragment extends Fragment {
 
         return view;
     }
-
 
 
     String callGroupId;

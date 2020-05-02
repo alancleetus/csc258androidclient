@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.paril.mlaclientapp.R;
+import com.paril.mlaclientapp.model.JoinReqWithInfo;
 import com.paril.mlaclientapp.model.MLAJoinRequest;
 import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAUserGroups;
@@ -38,13 +39,8 @@ public class MLAGroupRequestsFragment extends Fragment {
     View view;
     public String userId;
 
-    ArrayList<MLAJoinRequest> joinRequestsList;
+    ArrayList<JoinReqWithInfo> joinRequestsList;
     RecyclerView joinListRV;
-
-    HashMap<String, String>groupIdNameMap;
-    HashMap<String, String>userNameMap;
-
-    int counter,counter2;
 
     void getExtra() {
         Intent previous = MLAGroupRequestsFragment.this.getActivity().getIntent();
@@ -62,9 +58,7 @@ public class MLAGroupRequestsFragment extends Fragment {
         getExtra();
 
         joinListRV = (RecyclerView) view.findViewById(R.id.groupRequestsRV);
-        joinRequestsList = new ArrayList<MLAJoinRequest>();
-        groupIdNameMap = new HashMap<String, String>();
-        userNameMap = new HashMap<String, String>();
+        joinRequestsList = new ArrayList<JoinReqWithInfo>();
 
         getAllRequestsForUser();
 
@@ -73,80 +67,24 @@ public class MLAGroupRequestsFragment extends Fragment {
     }
 
     public void getAllRequestsForUser() {
-         //get groups for userId
-        Call<ArrayList<MLAUserGroups>> callAllGroupByID = Api.getClient().getGroupsByUserId(userId);
-        callAllGroupByID.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
+
+        //get all group requests that user can accept
+        Call<ArrayList<JoinReqWithInfo>> getReqs = Api.getClient().getRequestByUserId(userId);
+        getReqs.enqueue(new Callback<ArrayList<JoinReqWithInfo>>() {
             @Override
-            public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
-
-                //System.out.println("MLALog: group list size= "+response.body().size());
-                counter = 0;
-                counter2 =0;
-
-                for(MLAUserGroups g : response.body()) {
-
-                    String groupId = ""+g.getGroupId();
-                    groupIdNameMap.put(groupId, g.getGroupName());
-
-                    //get requests for each group
-                    Call <ArrayList<MLAJoinRequest>> callAllReq = Api.getClient().getRequestByGroupId(groupId);
-                    callAllReq.enqueue(new Callback<ArrayList<MLAJoinRequest>>() {
-
-                        @Override
-                        public void onResponse(Call<ArrayList<MLAJoinRequest>> call, Response<ArrayList<MLAJoinRequest>> response) {
-
-                            // append request to joinlistRV
-                            for (MLAJoinRequest req : response.body()){
-                                joinRequestsList.add(req);
-                                //System.out.println("MLALog: req= "+req.toString()+" list state="+joinRequestsList.size()+" ctr="+counter);
-                            }
-
-                            counter++;
-
-                            Call<List<MLARegisterUsers>> callgetRegister = Api.getClient().GetRegisterByUserId(userId);
-                            callgetRegister.enqueue(new Callback<List<MLARegisterUsers>>() {
-                                @Override
-                                public void onResponse(Call<List<MLARegisterUsers>> call, Response<List<MLARegisterUsers>> response) {
-                                    String username =  response.body().get(0).getUserName();
-
-                                    userNameMap.put(response.body().get(0).getUserId(), response.body().get(0).getUserName());
-                                    counter2++;
-                                    if(counter  >= groupIdNameMap.size() && counter2>=userNameMap.size()) {
-                                        //System.out.println("MLALog: group list size2= " + joinRequestsList.size());
-                                        try{
-                                            populateJoinListRV();
-                                        }catch (Exception e){e.printStackTrace();}
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<List<MLARegisterUsers>> call, Throwable throwable) {
-
-                                }
-                            });
-
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<ArrayList<MLAJoinRequest>> call, Throwable throwable) {
-
-                            counter++;
-                            System.out.println("MLALog: failed to get join requests");
-                        }
-                    });
-                }
-
-
+            public void onResponse(Call<ArrayList<JoinReqWithInfo>> call, Response<ArrayList<JoinReqWithInfo>> response) {
+                joinRequestsList = response.body();
+                System.out.println("MLALOG: join reqs"+joinRequestsList);
+                try{
+                    populateJoinListRV();
+                }catch (Exception e){e.printStackTrace();}
             }
 
             @Override
-            public void onFailure(Call<ArrayList<MLAUserGroups>> call, Throwable throwable) {
-
-                System.out.println("MLALog: failed to get user groups");
+            public void onFailure(Call<ArrayList<JoinReqWithInfo>> call, Throwable throwable) {
+                System.out.println("MLALOG: unable to get join requests by user id");
             }
         });
-
 
     }
 
@@ -156,9 +94,8 @@ public class MLAGroupRequestsFragment extends Fragment {
         keyStore.load(null);
         privateKey = (PrivateKey) keyStore.getKey(userId, null);
 
-        System.out.println("MLALog: populate list="+joinRequestsList);
         /*reference https://www.youtube.com/watch?v=Vyqz_-sJGFk*/
-        MLAJoinListAdapter adapter = new MLAJoinListAdapter(this.getActivity(), userId, privateKey, joinRequestsList, groupIdNameMap, userNameMap);
+        MLAJoinListAdapter adapter = new MLAJoinListAdapter(this.getActivity(), userId, privateKey, joinRequestsList);
         joinListRV.setAdapter(adapter);
         joinListRV.setLayoutManager(new LinearLayoutManager(this.getActivity()));
     }

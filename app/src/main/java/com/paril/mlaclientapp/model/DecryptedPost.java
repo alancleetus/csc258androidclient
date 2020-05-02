@@ -3,30 +3,18 @@ package com.paril.mlaclientapp.model;
 import android.support.annotation.NonNull;
 
 public class DecryptedPost implements Comparable<DecryptedPost>{
-    String userId;
     String userName;
     String decMessage;
-    String groupId;
     String groupName;
     String postid;
+    String timestamp;
 
-    //todo:maybe add timestamp
-
-    public DecryptedPost(String postId, String decMessage, String userId, String groupId, String userName, String groupName) {
-        this.userId = userId;
-        this.postid = postId;
-        this.decMessage = decMessage;
-        this.groupId = groupId;
-        this.groupName = groupName;
+    public DecryptedPost(String userName, String decMessage, String groupName, String postid, String timestamp) {
         this.userName = userName;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+        this.decMessage = decMessage;
+        this.groupName = groupName;
+        this.postid = postid;
+        this.timestamp = timestamp;
     }
 
     public String getUserName() {
@@ -45,14 +33,6 @@ public class DecryptedPost implements Comparable<DecryptedPost>{
         this.decMessage = decMessage;
     }
 
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
     public String getGroupName() {
         return groupName;
     }
@@ -69,13 +49,19 @@ public class DecryptedPost implements Comparable<DecryptedPost>{
         this.postid = postid;
     }
 
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
     @Override
     public String toString() {
         return "DecryptedPost{" +
-                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", decMessage='" + decMessage + '\'' +
-                ", groupId='" + groupId + '\'' +
                 ", groupName='" + groupName + '\'' +
                 ", postid='" + postid + '\'' +
                 '}';

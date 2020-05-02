@@ -13,17 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paril.mlaclientapp.R;
+import com.paril.mlaclientapp.model.JoinReqWithInfo;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
-import com.paril.mlaclientapp.model.MLAJoinRequest;
-import com.paril.mlaclientapp.model.MLARegisterUsers;
 import com.paril.mlaclientapp.model.MLAUserPublicKeys;
 import com.paril.mlaclientapp.util.RSAUtil;
 import com.paril.mlaclientapp.webservice.Api;
 
 import java.security.PrivateKey;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,20 +28,17 @@ import retrofit2.Response;
 
 public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.ViewHolder> {
 
-    ArrayList<MLAJoinRequest> joinList;
+    ArrayList<JoinReqWithInfo> joinList;
     private Context mContext;
-    HashMap<String, String> groupIdNameMap, userNameMap;
+
     PrivateKey privateKey;
     String currentUserId;
 
-    public MLAJoinListAdapter(Context mContext, String currentUserId, PrivateKey privateKey, ArrayList<MLAJoinRequest> joinList, HashMap<String, String> groupMap, HashMap<String, String> userNameMap) {
+    public MLAJoinListAdapter(Context mContext, String currentUserId, PrivateKey privateKey, ArrayList<JoinReqWithInfo> joinList) {
         this.joinList = joinList;
         this.mContext = mContext;
-        this.groupIdNameMap = groupMap;
-        this.userNameMap = userNameMap;
         this.privateKey = privateKey;
         this.currentUserId = currentUserId;
-        System.out.println("MLALog: list= "+joinList+" map="+groupIdNameMap+" prk="+privateKey);
     }
 
     @Override
@@ -56,8 +50,8 @@ public class MLAJoinListAdapter extends RecyclerView.Adapter<MLAJoinListAdapter.
 
     @Override
     public void onBindViewHolder(MLAJoinListAdapter.ViewHolder holder, final int position) {
-        String userName = userNameMap.get(joinList.get(position).getUserId());
-        final String groupName = groupIdNameMap.get(joinList.get(position).getGroupId());
+        String userName = joinList.get(position).getUserName();
+        final String groupName = joinList.get(position).getGroupName();
         holder.groupNameTV.setText("Group name:"+groupName);
         holder.userNameTV.setText("User name:"+userName);
 

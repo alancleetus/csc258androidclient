@@ -979,11 +979,8 @@ id joinRequestButton
 id label
 id lay_down
 id left
-id linLay1
 id line1
 id line3
-id linlay2
-id linlay3
 id listMode
 id list_item
 id localVideo
@@ -995,6 +992,7 @@ id menu_edit
 id menu_item_schedule_add
 id menu_save
 id menu_send
+id messageTV
 id middle
 id mini
 id mla_addschedule_spnrSubjectId
@@ -1110,11 +1108,7 @@ id parent_layout_grouplistRv
 id parent_posts_layout
 id percent
 id pin
-id postGroupNameTV
-id postLayoutMessageTV
-id postShareButton
 id postTypeSpinner
-id postUserNameTV
 id postsRecyclerView
 id progress_circular
 id progress_horizontal
@@ -1148,6 +1142,7 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id select_dialog_listview
+id shareButton
 id shortcut
 id showCustom
 id showGroupRequestsButton
@@ -1193,9 +1188,9 @@ id textView3
 id textView4
 id textView5
 id textView6
-id textView7
 id text_input_password_toggle
 id time
+id timestampTV
 id title
 id titleDividerNoCustom
 id title_template
@@ -1204,6 +1199,7 @@ id topPanel
 id touch_outside
 id up
 id useLogo
+id userNameTv
 id userNameTv_group_request_rv
 id user_item_display_layout_imgDeleteUser
 id user_item_display_layout_imgEditUser
@@ -1211,6 +1207,8 @@ id user_item_display_layout_swipeParent
 id user_item_display_layout_txtEmail
 id user_item_display_layout_txtName
 id user_item_display_layout_txtUserName
+id view1
+id view2
 id view_offset_helper
 id withText
 id wrap

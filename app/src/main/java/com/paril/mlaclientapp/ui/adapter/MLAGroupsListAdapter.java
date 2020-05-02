@@ -1,6 +1,7 @@
 package com.paril.mlaclientapp.ui.adapter;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,14 +76,14 @@ public class MLAGroupsListAdapter extends RecyclerView.Adapter<MLAGroupsListAdap
 
         TextView groupNameTV;
         Button joinButton;
-        LinearLayout parentLayout;
+        ConstraintLayout parentLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             groupNameTV = (TextView)itemView.findViewById(R.id.groupNameTv);
             joinButton = (Button) itemView.findViewById(R.id.joinRequestButton);
-            parentLayout = (LinearLayout) itemView.findViewById(R.id.parent_layout_grouplistRv);
+            parentLayout = (ConstraintLayout) itemView.findViewById(R.id.parent_layout_grouplistRv);
         }
     }
 }
