@@ -959,6 +959,10 @@ id fragment_update_task_dialog_coordinatorLayout
 id fragment_updated_task_relEmptyView
 id gone
 id groupListSpinner
+id groupMemberDeleteButton
+id groupMemberRV
+id groupMember_GroupNameTV
+id groupMember_UserNameTV
 id groupNameTv
 id groupNameTv_group_request_rv
 id groupRequestsRV
@@ -1102,6 +1106,7 @@ id numberInputLayout
 id packed
 id parallax
 id parent
+id parentLayoutForGroupMembers
 id parentPanel
 id parent_layout_group_request_rv
 id parent_layout_grouplistRv
@@ -1130,6 +1135,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchGroupMembersButton
 id searchGroupsButton
 id search_badge
 id search_bar
@@ -1286,6 +1292,7 @@ layout fragment_mla_edittask
 layout fragment_mla_enrollstudent
 layout fragment_mla_gradedisplay
 layout fragment_mla_gradegraph
+layout fragment_mla_group_members
 layout fragment_mla_group_requests
 layout fragment_mla_groups
 layout fragment_mla_instructorlist
@@ -1303,6 +1310,7 @@ layout fragment_mla_tasksinprocess
 layout fragment_mla_taskupdate
 layout incoming
 layout item_list_filterable
+layout layout_group_member_info
 layout layout_group_request_rv
 layout layout_grouplist_rv
 layout layout_mla_posts

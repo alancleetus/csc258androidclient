@@ -99,6 +99,7 @@ public class MLAGroupsFragment extends Fragment {
         Button showGroupRequestsButton = (Button) view.findViewById(R.id.showGroupRequestsButton);
         Button searchGroupsButton = (Button) view.findViewById(R.id.searchGroupsButton);
 
+        Button searchGroupMembersButton = (Button) view.findViewById(R.id.searchGroupMembersButton);
 
         createNewGroupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +119,13 @@ public class MLAGroupsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 groupRequestsFragment();
+            }
+        });
+
+        searchGroupMembersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                groupMembersFragment();
             }
         });
 
@@ -238,6 +246,21 @@ public class MLAGroupsFragment extends Fragment {
         fragmentTransaction.commit();
 
     }
+
+    /**********************************************************************************************/
+    /*********************************Accept Group requests****************************************/
+    /**********************************************************************************************/
+    public void groupMembersFragment()
+    {
+        MLAGroupMembersFragment mlaGroupMembersFragment = new MLAGroupMembersFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(((ViewGroup)getView().getParent()).getId(), mlaGroupMembersFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
 
     /**********************************************************************************************/
     /*********************************Accept Group requests****************************************/

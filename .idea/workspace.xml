@@ -83,8 +83,8 @@
       <list>
         <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
-        <option value="layoutResourceFile" />
         <option value="Interface" />
+        <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
     </option>

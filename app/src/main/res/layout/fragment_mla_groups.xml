@@ -22,7 +22,7 @@
             android:id="@+id/searchGroupsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search Group"
+            android:text="Show All Group"
             android:layout_marginTop="20dp"/>
 
         <Button
@@ -31,6 +31,13 @@
             android:layout_height="wrap_content"
             android:text="Show Group Requests"
             android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/searchGroupMembersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Group Members"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 
 </FrameLayout>

@@ -5,6 +5,7 @@ import com.paril.mlaclientapp.model.JoinReqWithInfo;
 import com.paril.mlaclientapp.model.MLAAdminDetails;
 import com.paril.mlaclientapp.model.MLAGradeTask;
 import com.paril.mlaclientapp.model.MLAGroupKeys;
+import com.paril.mlaclientapp.model.MLAGroupMembers;
 import com.paril.mlaclientapp.model.MLAGroupStatus;
 import com.paril.mlaclientapp.model.MLAInstructorDetails;
 import com.paril.mlaclientapp.model.MLAJoinRequest;
@@ -194,6 +195,12 @@ public interface APIInterface {
     @POST("api/userGroup/RmvUser")
     Call<Void> removeUserFromGroup(@Query("userId") String userId, @Query("groupId") String groupId);
 
+    @GET("api/userGroup/GetOutdatedGroups")
+    Call<ArrayList<MLAUserGroups>> getOutdateGroups(@Query("userId") String userId);
+
+
+    @GET("api/userGroup/GetMembersInGroupByUserId")
+    Call<ArrayList<MLAGroupMembers>> getMembersInGroupByUserId(@Query("userId") String userId);
 
     /**************************API's for  GroupKeys*******************************/
     @GET("api/GroupKeys/GetKey")

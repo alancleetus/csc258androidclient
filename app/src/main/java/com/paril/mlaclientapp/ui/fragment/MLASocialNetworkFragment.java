@@ -19,7 +19,9 @@ import android.widget.Toast;
 import com.paril.mlaclientapp.R;
 import com.paril.mlaclientapp.model.DecryptedPost;
 import com.paril.mlaclientapp.model.EncryptedPost;
+import com.paril.mlaclientapp.model.MLAGroupKeys;
 import com.paril.mlaclientapp.model.MLAUserGroups;
+import com.paril.mlaclientapp.model.MLAUserPublicKeys;
 import com.paril.mlaclientapp.ui.adapter.MLAPostsAdapter;
 import com.paril.mlaclientapp.util.AESUtil;
 import com.paril.mlaclientapp.util.RSAUtil;
@@ -36,6 +38,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Query;
 
 public class MLASocialNetworkFragment extends Fragment{
 
@@ -47,6 +50,7 @@ public class MLASocialNetworkFragment extends Fragment{
     PublicKey unrestrictedPublicKey;
     Bundle bundle;
     boolean personalGroupCreated = true;
+    boolean groupStatusChecked = false;
 
     // extract the extras that was sent from the previous intent
     void getExtra() {
@@ -105,6 +109,136 @@ public class MLASocialNetworkFragment extends Fragment{
                 }
             });
         }
+
+        //get groups that need updating by userId
+        if(!groupStatusChecked){
+            try {
+                Call<ArrayList<MLAUserGroups>> getOutdatedGroups = Api.getClient().getOutdateGroups(userId);
+                getOutdatedGroups.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
+                        if (response.body().size() <= 0) return;
+                        for (MLAUserGroups g : response.body()) {
+                            final String newKey = AESUtil.generateKey();
+                            final String groupId = "" + g.getGroupId();
+
+                            //get latest key for old key version
+                            Call<ArrayList<MLAGroupKeys>> getlatestKey = Api.getClient().getLatestKey(userId, "" + g.groupId);
+                            getlatestKey.enqueue(new Callback<ArrayList<MLAGroupKeys>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<MLAGroupKeys>> call, Response<ArrayList<MLAGroupKeys>> response) {
+                                    final String oldKeyVersion = ""+response.body().get(0).getGroupKeyVersion();
+
+                                    //set old key status false
+                                    Call<Void> setKeyFalse = Api.getClient().updateGroupKeyStatus(groupId, oldKeyVersion, "false");
+                                    setKeyFalse.enqueue(new Callback<Void>() {
+                                        @Override
+                                        public void onResponse(Call<Void> call, Response<Void> response) {
+                                            System.out.println("MLALog: successfully set group key status to false for groupId=" + groupId + " keyver=" + oldKeyVersion);
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<Void> call, Throwable t) {
+                                            System.out.println("MLALog: failed to set group key status to false for groupId=" + groupId + " keyver=" + oldKeyVersion);
+                                        }
+                                    });
+
+                                    //get all users in group
+                                    Call<ArrayList<MLAUserGroups>> getUsers = Api.getClient().getGroupsByGroupId(groupId);
+                                    getUsers.enqueue(new Callback<ArrayList<MLAUserGroups>>() {
+                                        @Override
+                                        public void onResponse(Call<ArrayList<MLAUserGroups>> call, Response<ArrayList<MLAUserGroups>> response) {
+                                            //for each user get their public key
+                                            for (MLAUserGroups u : response.body()) {
+                                                final String currUid = ""+u.getUserId();
+                                                //get pub key for user
+                                                Call<ArrayList<MLAUserPublicKeys>> getPublicKeyById = Api.getClient().getPublicKeyById("" + u.getUserId());
+                                                getPublicKeyById.enqueue(new Callback<ArrayList<MLAUserPublicKeys>>() {
+                                                    @Override
+                                                    public void onResponse(Call<ArrayList<MLAUserPublicKeys>> call, Response<ArrayList<MLAUserPublicKeys>> response) {
+
+                                                        for (MLAUserPublicKeys p : response.body()) {
+
+                                                            // for each public key enc new key using public key
+                                                            String encSecKey = null;
+                                                            try {
+                                                                encSecKey = RSAUtil.encrypt(newKey, p.getPublicKey());
+                                                            } catch (Exception e) {
+                                                                e.printStackTrace();
+                                                            }
+
+                                                            int newKeyVer = Integer.parseInt(oldKeyVersion) + 1;
+
+                                                            //for each enc key insert new key
+                                                            Call<Void> callNewKey = Api.getClient().addGroupKey("" + currUid, "" + groupId, encSecKey, newKeyVer);
+                                                            callNewKey.enqueue(new Callback<Void>() {
+
+                                                                @Override
+                                                                public void onResponse(Call<Void> call, Response<Void> response) {
+
+                                                                    System.out.println("MLALog:DONE adding new key");
+                                                                    //System.out.println("MLALog: "+response.toString());
+                                                                }
+
+                                                                @Override
+                                                                public void onFailure(Call<Void> call, Throwable throwable) {
+                                                                    System.out.println("MLALog:Error unable to add add key");
+
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onFailure(Call<ArrayList<MLAUserPublicKeys>> call, Throwable t) {
+
+                                                    }
+                                                });
+
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<ArrayList<MLAUserGroups>> call, Throwable t) {
+
+                                        }
+                                    });
+
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<MLAGroupKeys>> call, Throwable t) {
+
+                                }
+                            });
+
+                            Call<Void> updateStatus = Api.getClient().updateGroupStatus(groupId, "true");
+                            updateStatus.enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    System.out.print("MLALog: done update group status true");
+                                }
+
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+                                    System.out.print("MLALog: failed to update group status true");
+                                }
+                            });
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<MLAUserGroups>> call, Throwable t) {
+                        System.out.println("MLALog: error getting outdated groups");
+                    }
+                });
+            }catch(Exception e){e.printStackTrace();}
+            groupStatusChecked = true;
+        }
+
 
         FloatingActionButton makePostButton = (FloatingActionButton) view.findViewById(R.id.addPostButton);
         makePostButton.setOnClickListener(new View.OnClickListener() {
